@@ -2,16 +2,11 @@
 
 import { motion } from "framer-motion";
 import WaitlistForm from "./WaitlistForm";
-import {
-  Scan,
-  TrendingUp,
-  Trophy,
-} from "lucide-react";
+import { Scan, TrendingUp, Trophy } from "lucide-react";
 
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-radial-glow bg-grid">
-      {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-primary/3 rounded-full blur-3xl" />
@@ -19,7 +14,6 @@ export default function Hero() {
 
       <div className="relative z-10 max-w-6xl mx-auto px-6 pt-32 pb-20">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -32,19 +26,17 @@ export default function Hero() {
             </span>
           </motion.div>
 
-          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6"
+            className="text-5xl md:text-7xl font-black tracking-tight leading-[1.05] mb-6 text-foreground"
           >
             Optimize Your Health
             <br />
             <span className="text-gradient">Powered by AI</span>
           </motion.h1>
 
-          {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -55,7 +47,6 @@ export default function Hero() {
             Complete daily challenges. Level up your wellness — all in one app.
           </motion.p>
 
-          {/* Waitlist Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -65,7 +56,6 @@ export default function Hero() {
             <WaitlistForm />
           </motion.div>
 
-          {/* Mini Feature Icons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -77,11 +67,8 @@ export default function Hero() {
               { icon: TrendingUp, label: "Hormone Tracking" },
               { icon: Trophy, label: "Gamified Challenges" },
             ].map((item, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2.5 text-muted"
-              >
-                <div className="w-10 h-10 rounded-xl bg-surface-light border border-surface-border flex items-center justify-center">
+              <div key={i} className="flex items-center gap-2.5 text-muted">
+                <div className="w-10 h-10 rounded-xl bg-white border border-surface-border flex items-center justify-center card-shadow">
                   <item.icon size={18} className="text-primary" />
                 </div>
                 <span className="text-sm font-medium">{item.label}</span>

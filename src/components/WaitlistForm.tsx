@@ -48,18 +48,18 @@ export default function WaitlistForm() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="bg-primary/10 border border-primary/30 rounded-2xl p-6 text-center"
+            className="bg-primary/5 border border-primary/20 rounded-2xl p-6 text-center"
           >
-            <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
+            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
               <Check className="text-primary" size={28} />
             </div>
-            <h3 className="text-xl font-bold mb-2">You&apos;re on the list!</h3>
+            <h3 className="text-xl font-bold mb-2 text-foreground">You&apos;re on the list!</h3>
             <p className="text-muted text-sm">
               Check your inbox for a welcome email with your first free health tip.
             </p>
             <button
               onClick={() => setStatus("idle")}
-              className="mt-4 text-sm text-primary hover:text-primary-light transition-colors"
+              className="mt-4 text-sm text-primary hover:text-primary-dark transition-colors"
             >
               Sign up another email
             </button>
@@ -79,7 +79,7 @@ export default function WaitlistForm() {
                 placeholder="Your first name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="flex-1 px-5 py-4 bg-surface border border-surface-border rounded-xl text-white placeholder:text-muted/60 focus:outline-none focus:border-primary/50 transition-colors text-sm"
+                className="flex-1 px-5 py-4 bg-white border border-surface-border rounded-xl text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all text-sm card-shadow"
               />
               <input
                 type="email"
@@ -87,13 +87,13 @@ export default function WaitlistForm() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 px-5 py-4 bg-surface border border-surface-border rounded-xl text-white placeholder:text-muted/60 focus:outline-none focus:border-primary/50 transition-colors text-sm"
+                className="flex-1 px-5 py-4 bg-white border border-surface-border rounded-xl text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all text-sm card-shadow"
               />
             </div>
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full px-6 py-4 bg-primary hover:bg-primary-light text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 pulse-blue disabled:opacity-70 disabled:cursor-not-allowed text-sm"
+              className="w-full px-6 py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 pulse-blue disabled:opacity-70 disabled:cursor-not-allowed text-sm"
             >
               {status === "loading" ? (
                 <>
@@ -111,12 +111,12 @@ export default function WaitlistForm() {
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-red-400 text-sm text-center"
+                className="text-red-500 text-sm text-center"
               >
                 {errorMsg}
               </motion.p>
             )}
-            <p className="text-center text-muted/50 text-xs pt-1">
+            <p className="text-center text-muted/60 text-xs pt-1">
               Free weekly health tips. No spam. Unsubscribe anytime.
             </p>
           </motion.form>
