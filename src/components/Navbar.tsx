@@ -33,10 +33,8 @@ export default function Navbar() {
     >
       <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a href="#" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-xl bg-primary/20 flex items-center justify-center">
-            <span className="text-primary font-black text-lg">M</span>
-          </div>
+        <a href="#" className="flex items-center gap-2.5">
+          <img src="/maxilogo.png" alt="MAXI AI" className="w-9 h-9 rounded-xl" />
           <span className="text-xl font-bold tracking-tight">
             MAXI <span className="text-primary">AI</span>
           </span>
@@ -55,7 +53,7 @@ export default function Navbar() {
           ))}
           <a
             href="#waitlist"
-            className="px-5 py-2.5 bg-primary text-black text-sm font-semibold rounded-full hover:bg-primary-light transition-colors"
+            className="px-5 py-2.5 bg-primary text-white text-sm font-semibold rounded-full hover:bg-primary-light transition-colors"
           >
             Join Waitlist
           </a>
@@ -90,7 +88,7 @@ export default function Navbar() {
           <a
             href="#waitlist"
             onClick={() => setMobileOpen(false)}
-            className="mt-3 block text-center px-5 py-3 bg-primary text-black font-semibold rounded-full"
+            className="mt-3 block text-center px-5 py-3 bg-primary text-white font-semibold rounded-full"
           >
             Join Waitlist
           </a>

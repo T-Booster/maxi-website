@@ -93,7 +93,7 @@ export default function WaitlistForm() {
             <button
               type="submit"
               disabled={status === "loading"}
-              className="w-full px-6 py-4 bg-primary hover:bg-primary-light text-black font-bold rounded-xl transition-all flex items-center justify-center gap-2 pulse-green disabled:opacity-70 disabled:cursor-not-allowed text-sm"
+              className="w-full px-6 py-4 bg-primary hover:bg-primary-light text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 pulse-blue disabled:opacity-70 disabled:cursor-not-allowed text-sm"
             >
               {status === "loading" ? (
                 <>

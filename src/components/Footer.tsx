@@ -4,10 +4,8 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-              <span className="text-primary font-black text-sm">M</span>
-            </div>
+          <div className="flex items-center gap-2.5">
+            <img src="/maxilogo.png" alt="MAXI AI" className="w-8 h-8 rounded-lg" />
             <span className="text-lg font-bold tracking-tight">
               MAXI <span className="text-primary">AI</span>
             </span>

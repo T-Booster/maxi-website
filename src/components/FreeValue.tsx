@@ -117,7 +117,7 @@ export default function FreeValue() {
         >
           <a
             href="#waitlist"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-black font-bold rounded-full hover:bg-primary-light transition-colors pulse-green"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-bold rounded-full hover:bg-primary-light transition-colors pulse-blue"
           >
             Get Free Tips — Join the Waitlist
           </a>

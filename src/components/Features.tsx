@@ -16,7 +16,7 @@ const features = [
     title: "AI Food Scanner",
     description:
       "Point your camera at any meal. Our AI instantly identifies ingredients, calculates macros, and gives you a health optimization score.",
-    highlight: "GPT-4 Vision + USDA Data",
+    highlight: "MAXI AI Vision + USDA Data",
   },
   {
     icon: Activity,
@@ -51,7 +51,7 @@ const features = [
     title: "AI Health Chat",
     description:
       "Ask anything about nutrition, hormones, or supplements. Get personalized answers backed by real nutritional science data.",
-    highlight: "ChatGPT-Powered",
+    highlight: "MAXI-Powered",
   },
 ];
 
@@ -106,7 +106,7 @@ export default function Features() {
             <motion.div
               key={i}
               variants={itemVariants}
-              className="group relative bg-surface border border-surface-border rounded-2xl p-7 hover:border-primary/30 transition-all duration-300 hover:glow-green-sm"
+              className="group relative bg-surface border border-surface-border rounded-2xl p-7 hover:border-primary/30 transition-all duration-300 hover:glow-blue-sm"
             >
               {/* Icon */}
               <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">

@@ -3,14 +3,14 @@
 @theme {
   --color-background: #000000;
   --color-foreground: #ffffff;
-  --color-primary: #22c55e;
-  --color-primary-dark: #16a34a;
-  --color-primary-light: #4ade80;
+  --color-primary: #3b82f6;
+  --color-primary-dark: #2563eb;
+  --color-primary-light: #60a5fa;
   --color-surface: #111111;
   --color-surface-light: #1a1a1a;
   --color-surface-border: #222222;
   --color-muted: #888888;
-  --color-accent: #22c55e;
+  --color-accent: #3b82f6;
   --font-sans: "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
 }
 
@@ -45,17 +45,17 @@ body {
 }
 
 /* Glow effect for cards */
-.glow-green {
-  box-shadow: 0 0 40px rgba(34, 197, 94, 0.15), 0 0 80px rgba(34, 197, 94, 0.05);
+.glow-blue {
+  box-shadow: 0 0 40px rgba(59, 130, 246, 0.15), 0 0 80px rgba(59, 130, 246, 0.05);
 }
 
-.glow-green-sm {
-  box-shadow: 0 0 20px rgba(34, 197, 94, 0.1);
+.glow-blue-sm {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.1);
 }
 
 /* Gradient text */
 .text-gradient {
-  background: linear-gradient(135deg, #22c55e 0%, #4ade80 50%, #86efac 100%);
+  background: linear-gradient(135deg, #3b82f6 0%, #60a5fa 50%, #93c5fd 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -72,23 +72,23 @@ body {
 }
 
 .animated-border {
-  background: linear-gradient(270deg, #22c55e, #16a34a, #4ade80, #22c55e);
+  background: linear-gradient(270deg, #3b82f6, #2563eb, #60a5fa, #3b82f6);
   background-size: 300% 300%;
   animation: gradient-shift 4s ease infinite;
 }
 
 /* Pulse animation for CTA */
-@keyframes pulse-green {
+@keyframes pulse-blue {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+    box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4);
   }
   50% {
-    box-shadow: 0 0 0 12px rgba(34, 197, 94, 0);
+    box-shadow: 0 0 0 12px rgba(59, 130, 246, 0);
   }
 }
 
-.pulse-green {
-  animation: pulse-green 2s ease-in-out infinite;
+.pulse-blue {
+  animation: pulse-blue 2s ease-in-out infinite;
 }
 
 /* Float animation for mockups */
@@ -108,12 +108,12 @@ body {
 /* Grid pattern background */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(34, 197, 94, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(34, 197, 94, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
 /* Radial glow background */
 .bg-radial-glow {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(34, 197, 94, 0.12), transparent);
+  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.12), transparent);
 }

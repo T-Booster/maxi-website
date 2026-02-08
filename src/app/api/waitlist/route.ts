@@ -85,11 +85,11 @@ function getWelcomeEmailHTML(name: string): string {
               <table cellpadding="0" cellspacing="0">
                 <tr>
                   <td style="background-color:rgba(34,197,94,0.2);border-radius:12px;padding:10px 14px;">
-                    <span style="color:#22c55e;font-weight:900;font-size:20px;">M</span>
+                    <span style="color:#3b82f6;font-weight:900;font-size:20px;">M</span>
                   </td>
                   <td style="padding-left:10px;">
                     <span style="color:#ffffff;font-weight:700;font-size:22px;letter-spacing:-0.5px;">MAXI </span>
-                    <span style="color:#22c55e;font-weight:700;font-size:22px;">AI</span>
+                    <span style="color:#3b82f6;font-weight:700;font-size:22px;">AI</span>
                   </td>
                 </tr>
               </table>
@@ -104,7 +104,7 @@ function getWelcomeEmailHTML(name: string): string {
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center" style="padding-bottom:24px;">
-                    <span style="display:inline-block;background-color:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:50px;padding:8px 20px;color:#22c55e;font-size:13px;font-weight:600;">
+                    <span style="display:inline-block;background-color:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:50px;padding:8px 20px;color:#3b82f6;font-size:13px;font-weight:600;">
                       &#10003; You're on the Waitlist!
                     </span>
                   </td>
@@ -133,7 +133,7 @@ function getWelcomeEmailHTML(name: string): string {
                   <td style="padding:10px 0;">
                     <table cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="color:#22c55e;font-size:18px;padding-right:12px;vertical-align:top;">&#9889;</td>
+                        <td style="color:#3b82f6;font-size:18px;padding-right:12px;vertical-align:top;">&#9889;</td>
                         <td>
                           <strong style="color:#ffffff;font-size:14px;">Weekly Health Tips</strong>
                           <p style="color:#888888;font-size:13px;margin:4px 0 0;line-height:1.5;">Science-backed nutrition and hormone optimization tips delivered every week.</p>
@@ -146,7 +146,7 @@ function getWelcomeEmailHTML(name: string): string {
                   <td style="padding:10px 0;">
                     <table cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="color:#22c55e;font-size:18px;padding-right:12px;vertical-align:top;">&#127942;</td>
+                        <td style="color:#3b82f6;font-size:18px;padding-right:12px;vertical-align:top;">&#127942;</td>
                         <td>
                           <strong style="color:#ffffff;font-size:14px;">Early Access</strong>
                           <p style="color:#888888;font-size:13px;margin:4px 0 0;line-height:1.5;">Be first in line when MAXI AI launches — plus an exclusive waitlist discount.</p>
@@ -159,7 +159,7 @@ function getWelcomeEmailHTML(name: string): string {
                   <td style="padding:10px 0;">
                     <table cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="color:#22c55e;font-size:18px;padding-right:12px;vertical-align:top;">&#129504;</td>
+                        <td style="color:#3b82f6;font-size:18px;padding-right:12px;vertical-align:top;">&#129504;</td>
                         <td>
                           <strong style="color:#ffffff;font-size:14px;">Behind the Scenes</strong>
                           <p style="color:#888888;font-size:13px;margin:4px 0 0;line-height:1.5;">Get sneak peeks of the app, feature previews, and updates on our progress.</p>
@@ -175,7 +175,7 @@ function getWelcomeEmailHTML(name: string): string {
 
               <!-- First Tip -->
               <div style="background-color:#1a1a1a;border:1px solid #222222;border-radius:12px;padding:24px;">
-                <h3 style="color:#22c55e;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 12px;">
+                <h3 style="color:#3b82f6;font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;margin:0 0 12px;">
                   &#127793; Your First Free Tip
                 </h3>
                 <h3 style="color:#ffffff;font-size:16px;font-weight:700;margin:0 0 8px;">
