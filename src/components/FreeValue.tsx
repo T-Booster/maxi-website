@@ -21,9 +21,9 @@ const faqs = [
       "It's a personalized 0-100 score that tracks your daily progress across five health pillars: sleep, nutrition, training, lifestyle, and consistency. Every food scan, workout, and challenge completion feeds into your score, giving you a clear picture of your overall optimization.",
   },
   {
-    question: "Is MAXI AI free to use?",
+    question: "How much does MAXI AI cost?",
     answer:
-      "MAXI AI offers both free and premium tiers. Core features like food scanning and basic tracking are available for free. Premium unlocks AI-generated meal and workout plans, advanced analytics, and additional features to accelerate your health journey.",
+      "MAXI AI is a premium subscription app. A subscription is required to access all features including the AI food scanner, hormone tracking, daily challenges, leaderboards, and AI-generated plans. You can view the current pricing on the App Store before subscribing.",
   },
   {
     question: "What challenges are available?",
@@ -33,7 +33,7 @@ const faqs = [
   {
     question: "How does the leveling system work?",
     answer:
-      "You earn XP from food scans, workouts, and completing daily challenges. Progress through 30 levels across 5 tiers — Wood, Bronze, Silver, Gold, and Diamond. Compete on global leaderboards and track your growth over time.",
+      "You earn XP from food scans, workouts, and completing daily challenges. Progress through 30 levels across 5 tiers: Wood, Bronze, Silver, Gold, and Diamond. Compete on global leaderboards and track your growth over time.",
   },
 ];
 

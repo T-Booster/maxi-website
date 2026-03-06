@@ -50,7 +50,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="https://apps.apple.com/app/maxi-ai"
+            href="https://apps.apple.com/lb/app/maxi-ai-maximize-your-health/id6754610107"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 bg-white text-[#09090f] text-sm font-semibold rounded-full hover:bg-white/90 transition-colors"
@@ -84,7 +84,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="https://apps.apple.com/app/maxi-ai"
+            href="https://apps.apple.com/lb/app/maxi-ai-maximize-your-health/id6754610107"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}

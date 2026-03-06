@@ -41,7 +41,7 @@ export default function Hero() {
               className="text-lg text-dark-muted max-w-xl mb-10 leading-relaxed"
             >
               Scan your meals with AI. Track your hormone optimization score.
-              Complete daily challenges. Level up your wellness — all in one app.
+              Complete daily challenges. Level up your wellness, all in one app.
             </motion.p>
 
             <motion.div
@@ -51,7 +51,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <a
-                href="https://apps.apple.com/app/maxi-ai"
+                href="https://apps.apple.com/lb/app/maxi-ai-maximize-your-health/id6754610107"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#09090f] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm"

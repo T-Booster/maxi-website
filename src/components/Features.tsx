@@ -7,39 +7,39 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const features = [
   {
     image: "/mockups/3.png",
-    title: "AI Food Scanner",
+    title: "Workout Tracking",
     description:
-      "Point your camera at any meal. Get instant nutrition data, macros, and a hormone optimization score powered by USDA-verified data.",
+      "Log runs, walks, rides, hikes, swims, and gym sessions. Track duration, distance, and intensity with Apple Health integration.",
   },
   {
     image: "/mockups/4.png",
-    title: "Hormone Optimization Score",
+    title: "AI Food Scanner",
     description:
-      "A personalized 0-100 score tracking your daily progress across sleep, nutrition, training, lifestyle, and consistency.",
+      "Snap a photo, chat with AI, or browse the USDA database. Multiple ways to log your meals with instant nutrition analysis.",
   },
   {
     image: "/mockups/5.png",
-    title: "Daily Challenges",
+    title: "Health Insights",
     description:
-      "Sugar detox, cold showers, screen-free nights, workout routines — gamified challenges across 7 categories that build real habits.",
+      "Your daily readiness score across nutrition, workouts, sleep, and more. See exactly where you stand and what to improve.",
   },
   {
     image: "/mockups/6.png",
-    title: "XP & Leaderboard",
+    title: "AI Food Analysis",
     description:
-      "Earn XP from food scans, workouts, and challenge completions. Level up through 30 tiers and compete on the global leaderboard.",
+      "Every scan gives you a T-Impact Score, full macro breakdown, calories, protein, carbs, and fats. Powered by USDA-verified data.",
   },
   {
     image: "/mockups/7.png",
-    title: "Workout & Sleep Tracking",
+    title: "Hormone Optimization Score",
     description:
-      "Integrated with Apple Health. Track workouts, sleep quality, steps, and active calories — all feeding your optimization score.",
+      "A personalized 0-100 score tracking your natural optimization level across sleep, nutrition, and lifestyle factors.",
   },
   {
     image: "/mockups/8.png",
-    title: "AI Health Chat",
+    title: "Daily Challenges & Home",
     description:
-      "Ask anything about nutrition, hormones, or supplements. Get personalized answers backed by real nutritional science data.",
+      "Daily wisdom, active challenges, and your personalized dashboard. Stay on track with gamified habits across 7 categories.",
   },
 ];
 
