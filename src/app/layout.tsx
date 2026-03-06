@@ -4,7 +4,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "MAXI AI — Optimize Your Health with AI",
   description:
-    "The AI-powered health app that scans your food, tracks your hormones, and gamifies your wellness journey. Join the waitlist for early access.",
+    "The AI-powered health app that scans your food, tracks your hormones, and gamifies your wellness journey. Download on the App Store.",
   keywords: [
     "health app",
     "AI nutrition",
@@ -13,11 +13,12 @@ export const metadata: Metadata = {
     "food scanner",
     "wellness",
     "fitness",
+    "gamified health",
   ],
   openGraph: {
     title: "MAXI AI — Optimize Your Health with AI",
     description:
-      "Scan food. Track hormones. Level up your health. Join the waitlist.",
+      "Scan food. Track hormones. Level up your health. Download now.",
     type: "website",
     locale: "en_US",
   },
@@ -25,7 +26,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MAXI AI — Optimize Your Health with AI",
     description:
-      "Scan food. Track hormones. Level up your health. Join the waitlist.",
+      "Scan food. Track hormones. Level up your health. Download now.",
   },
 };
 

@@ -6,7 +6,6 @@ import { ArrowRight, Check, Loader2 } from "lucide-react";
 
 export default function WaitlistForm() {
   const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
 
@@ -21,7 +20,7 @@ export default function WaitlistForm() {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, name }),
+        body: JSON.stringify({ email }),
       });
 
       const data = await res.json();
@@ -32,15 +31,14 @@ export default function WaitlistForm() {
 
       setStatus("success");
       setEmail("");
-      setName("");
     } catch (err) {
       setStatus("error");
-      setErrorMsg(err instanceof Error ? err.message : "Failed to join waitlist");
+      setErrorMsg(err instanceof Error ? err.message : "Failed to subscribe");
     }
   };
 
   return (
-    <div className="max-w-lg mx-auto">
+    <div className="max-w-md">
       <AnimatePresence mode="wait">
         {status === "success" ? (
           <motion.div
@@ -48,20 +46,23 @@ export default function WaitlistForm() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
-            className="bg-primary/5 border border-primary/20 rounded-2xl p-6 text-center"
+            className="bg-primary/10 border border-primary/20 rounded-2xl p-6"
           >
-            <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
-              <Check className="text-primary" size={28} />
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+                <Check className="text-primary" size={20} />
+              </div>
+              <h3 className="text-lg font-bold text-white">You&apos;re subscribed!</h3>
             </div>
-            <h3 className="text-xl font-bold mb-2 text-foreground">You&apos;re on the list!</h3>
-            <p className="text-muted text-sm">
-              Check your inbox for a welcome email with your first free health tip.
+            <p className="text-dark-muted text-sm ml-[52px]">
+              Check your inbox for a welcome email. We&apos;ll keep you updated with
+              the latest features and health articles.
             </p>
             <button
               onClick={() => setStatus("idle")}
-              className="mt-4 text-sm text-primary hover:text-primary-dark transition-colors"
+              className="mt-4 ml-[52px] text-sm text-primary hover:text-primary-light transition-colors"
             >
-              Sign up another email
+              Subscribe another email
             </button>
           </motion.div>
         ) : (
@@ -75,49 +76,42 @@ export default function WaitlistForm() {
           >
             <div className="flex flex-col sm:flex-row gap-3">
               <input
-                type="text"
-                placeholder="Your first name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className="flex-1 px-5 py-4 bg-white border border-surface-border rounded-xl text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all text-sm card-shadow"
-              />
-              <input
                 type="email"
-                placeholder="Your email address"
+                placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="flex-1 px-5 py-4 bg-white border border-surface-border rounded-xl text-foreground placeholder:text-muted/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all text-sm card-shadow"
+                className="flex-1 px-5 py-4 bg-dark-surface border border-dark-border rounded-xl text-white placeholder:text-dark-muted/60 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all text-sm"
               />
+              <button
+                type="submit"
+                disabled={status === "loading"}
+                className="px-6 py-4 bg-white text-[#09090f] font-bold rounded-xl transition-all flex items-center justify-center gap-2 hover:bg-gray-100 disabled:opacity-70 disabled:cursor-not-allowed text-sm whitespace-nowrap"
+              >
+                {status === "loading" ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    Subscribing...
+                  </>
+                ) : (
+                  <>
+                    Subscribe
+                    <ArrowRight size={18} />
+                  </>
+                )}
+              </button>
             </div>
-            <button
-              type="submit"
-              disabled={status === "loading"}
-              className="w-full px-6 py-4 bg-primary hover:bg-primary-dark text-white font-bold rounded-xl transition-all flex items-center justify-center gap-2 pulse-blue disabled:opacity-70 disabled:cursor-not-allowed text-sm"
-            >
-              {status === "loading" ? (
-                <>
-                  <Loader2 size={18} className="animate-spin" />
-                  Joining...
-                </>
-              ) : (
-                <>
-                  Join the Waitlist — It&apos;s Free
-                  <ArrowRight size={18} />
-                </>
-              )}
-            </button>
             {status === "error" && (
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                className="text-red-500 text-sm text-center"
+                className="text-red-400 text-sm"
               >
                 {errorMsg}
               </motion.p>
             )}
-            <p className="text-center text-muted/60 text-xs pt-1">
-              Free weekly health tips. No spam. Unsubscribe anytime.
+            <p className="text-dark-muted/50 text-xs">
+              Free updates and health articles. No spam. Unsubscribe anytime.
             </p>
           </motion.form>
         )}

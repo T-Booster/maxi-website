@@ -1,33 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { UserPlus, Mail, Rocket } from "lucide-react";
 
 const steps = [
   {
-    icon: UserPlus,
-    step: "01",
-    title: "Join the Waitlist",
-    description: "Enter your email above. It takes 5 seconds and you'll be first in line when we launch.",
+    image: "/mockups/9.png",
+    title: "Scan Your Meals",
+    description:
+      "Use AI-powered vision to identify ingredients, calculate macros, and score your food's hormonal impact — all in seconds.",
   },
   {
-    icon: Mail,
-    step: "02",
-    title: "Get Free Weekly Tips",
-    description: "We'll send you science-backed health optimization tips every week. Real value, zero fluff, completely free.",
+    image: "/mockups/10.png",
+    title: "Complete Challenges",
+    description:
+      "Take on daily challenges across nutrition, sleep, training, and lifestyle. Build streaks, earn XP, and develop lasting habits.",
   },
   {
-    icon: Rocket,
-    step: "03",
-    title: "Get Early Access",
-    description: "When MAXI AI launches, waitlist members get exclusive early access, a special discount, and priority support.",
+    image: "/mockups/11.png",
+    title: "Level Up Your Health",
+    description:
+      "Track your progress through 30 levels and 5 tiers. Compete on the global leaderboard and optimize your daily score.",
   },
 ];
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" className="py-24 md:py-32 relative bg-surface">
-      <div className="max-w-6xl mx-auto px-6">
+    <section id="how-it-works" className="py-24 md:py-32 bg-white relative">
+      <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -35,18 +34,15 @@ export default function HowItWorks() {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="text-primary text-sm font-semibold uppercase tracking-widest">How It Works</span>
-          <h2 className="text-4xl md:text-5xl font-black mt-3 mb-5 text-foreground">
-            Three Simple <span className="text-gradient">Steps</span>
+          <span className="inline-flex items-center px-4 py-2 rounded-full border border-surface-border text-sm text-muted font-medium mb-6">
+            How It Works
+          </span>
+          <h2 className="text-4xl md:text-5xl font-black text-foreground">
+            Built Around <span className="text-gradient">Your Day</span>
           </h2>
-          <p className="text-muted text-lg max-w-xl mx-auto">
-            Join the community now and be ready when we launch.
-          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 relative">
-          <div className="hidden md:block absolute top-16 left-[20%] right-[20%] h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
-
+        <div className="grid md:grid-cols-3 gap-10">
           {steps.map((step, i) => (
             <motion.div
               key={i}
@@ -54,18 +50,19 @@ export default function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: i * 0.15 }}
-              className="text-center relative"
+              className="text-center"
             >
-              <div className="relative mx-auto mb-6">
-                <div className="w-20 h-20 rounded-2xl bg-white border border-surface-border flex items-center justify-center mx-auto relative z-10 card-shadow">
-                  <step.icon size={28} className="text-primary" />
-                </div>
-                <span className="absolute -top-2 -right-2 w-7 h-7 rounded-full bg-primary text-white text-xs font-bold flex items-center justify-center z-20">
-                  {step.step}
-                </span>
+              <div className="phone-frame-light w-[260px] mx-auto mb-8">
+                <img
+                  src={step.image}
+                  alt={step.title}
+                  className="w-full aspect-[9/19.5] object-cover bg-[#111]"
+                />
               </div>
-              <h3 className="text-xl font-bold mb-3 text-foreground">{step.title}</h3>
-              <p className="text-muted text-sm leading-relaxed max-w-xs mx-auto">{step.description}</p>
+              <h3 className="text-xl font-bold text-foreground mb-3">{step.title}</h3>
+              <p className="text-muted text-sm leading-relaxed max-w-xs mx-auto">
+                {step.description}
+              </p>
             </motion.div>
           ))}
         </div>

@@ -1,21 +1,21 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import SocialProof from "@/components/SocialProof";
-import Features from "@/components/Features";
+import Mission from "@/components/SocialProof";
+import AppShowcase from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
-import FreeValue from "@/components/FreeValue";
+import FAQ from "@/components/FreeValue";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <main>
       <Navbar />
       <Hero />
-      <SocialProof />
-      <Features />
+      <Mission />
+      <AppShowcase />
       <HowItWorks />
-      <FreeValue />
+      <FAQ />
       <FinalCTA />
       <Footer />
     </main>

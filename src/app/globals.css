@@ -2,7 +2,7 @@
 
 @theme {
   --color-background: #ffffff;
-  --color-foreground: #1a1a2e;
+  --color-foreground: #0a0a0f;
   --color-primary: #3b82f6;
   --color-primary-dark: #2563eb;
   --color-primary-light: #60a5fa;
@@ -11,6 +11,10 @@
   --color-surface-border: #e2e8f0;
   --color-muted: #64748b;
   --color-accent: #3b82f6;
+  --color-dark: #09090f;
+  --color-dark-surface: #12121a;
+  --color-dark-border: #1e1e2e;
+  --color-dark-muted: #8a8a9a;
   --font-sans: "Inter", "SF Pro Display", system-ui, -apple-system, sans-serif;
 }
 
@@ -43,14 +47,7 @@ body {
   background: #94a3b8;
 }
 
-.glow-blue {
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.12), 0 0 40px rgba(59, 130, 246, 0.06);
-}
-
-.glow-blue-sm {
-  box-shadow: 0 2px 12px rgba(59, 130, 246, 0.1);
-}
-
+/* Gradient text */
 .text-gradient {
   background: linear-gradient(135deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
   -webkit-background-clip: text;
@@ -58,26 +55,52 @@ body {
   background-clip: text;
 }
 
-@keyframes gradient-shift {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+/* Phone mockup frame — for dark backgrounds */
+.phone-frame {
+  border-radius: 2.5rem;
+  border: 6px solid #2a2a30;
+  background: #000;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 25px 60px rgba(0, 0, 0, 0.4),
+    0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.animated-border {
-  background: linear-gradient(270deg, #3b82f6, #2563eb, #60a5fa, #3b82f6);
-  background-size: 300% 300%;
-  animation: gradient-shift 4s ease infinite;
+/* Phone mockup frame — for light backgrounds */
+.phone-frame-light {
+  border-radius: 2.5rem;
+  border: 6px solid #d1d5db;
+  background: #000;
+  overflow: hidden;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.12),
+    0 10px 20px rgba(0, 0, 0, 0.06);
 }
 
-@keyframes pulse-blue {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.35); }
-  50% { box-shadow: 0 0 0 12px rgba(59, 130, 246, 0); }
+/* Dark section backgrounds */
+.bg-grid-dark {
+  background-image:
+    linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
-.pulse-blue {
-  animation: pulse-blue 2s ease-in-out infinite;
+.bg-radial-glow-dark {
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(59, 130, 246, 0.06), transparent);
 }
 
+/* Hide scrollbar for carousels */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Animations */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-12px); }
@@ -87,21 +110,12 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
-.bg-grid {
-  background-image:
-    linear-gradient(rgba(59, 130, 246, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(59, 130, 246, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
 }
 
-.bg-radial-glow {
-  background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.08), transparent);
-}
-
-.card-shadow {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.04);
-}
-
-.card-shadow-hover {
-  box-shadow: 0 4px 16px rgba(59, 130, 246, 0.1), 0 1px 4px rgba(0, 0, 0, 0.06);
+.animate-float-delayed {
+  animation: float-delayed 7s ease-in-out infinite;
+  animation-delay: 1s;
 }
