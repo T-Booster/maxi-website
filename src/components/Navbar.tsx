@@ -33,9 +33,9 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2.5">
-          <img src="/maxilogo.png" alt="MAXI AI" className="w-9 h-9 rounded-xl" />
+          <img src="/maxilogo.png" alt="FunFit AI" className="w-9 h-9 rounded-xl" />
           <span className="text-xl font-bold tracking-tight text-white">
-            MAXI <span className="text-primary">AI</span>
+            FunFit <span className="text-primary">AI</span>
           </span>
         </a>
 
@@ -50,7 +50,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="https://apps.apple.com/lb/app/maxi-ai-maximize-your-health/id6754610107"
+            href="https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107"
             target="_blank"
             rel="noopener noreferrer"
             className="px-5 py-2.5 bg-white text-[#09090f] text-sm font-semibold rounded-full hover:bg-white/90 transition-colors"
@@ -84,7 +84,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="https://apps.apple.com/lb/app/maxi-ai-maximize-your-health/id6754610107"
+            href="https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107"
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => setMobileOpen(false)}

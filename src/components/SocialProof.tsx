@@ -30,7 +30,7 @@ export default function Mission() {
               <span className="text-gradient">More</span> From Their Health
             </h2>
             <p className="text-muted text-lg leading-relaxed mb-6">
-              Most health apps give you numbers. MAXI AI gives you understanding.
+              Most health apps give you numbers. FunFit AI gives you understanding.
               We combine AI-powered food analysis with hormone tracking, gamified
               challenges, and science-backed insights so you don&apos;t just track
               your health, you optimize it.
@@ -38,7 +38,7 @@ export default function Mission() {
             <p className="text-muted text-lg leading-relaxed">
               Whether it&apos;s scanning your meals for their hormonal impact, competing
               on global leaderboards, or building daily habits that compound,
-              MAXI AI is your all-in-one health optimization platform.
+              FunFit AI is your all-in-one health optimization platform.
             </p>
           </motion.div>
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MAXI AI — Optimize Your Health with AI",
+  title: "FunFit AI — Optimize Your Health with AI",
   description:
     "The AI-powered health app that scans your food, tracks your hormones, and gamifies your wellness journey. Download on the App Store.",
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "gamified health",
   ],
   openGraph: {
-    title: "MAXI AI — Optimize Your Health with AI",
+    title: "FunFit AI — Optimize Your Health with AI",
     description:
       "Scan food. Track hormones. Level up your health. Download now.",
     type: "website",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "MAXI AI — Optimize Your Health with AI",
+    title: "FunFit AI — Optimize Your Health with AI",
     description:
       "Scan food. Track hormones. Level up your health. Download now.",
   },

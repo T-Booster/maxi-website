@@ -3,7 +3,7 @@ import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-// Audience ID for the MAXI AI newsletter — set this in .env.local after creating it in Resend dashboard
+// Audience ID for the FunFit AI newsletter — set this in .env.local after creating it in Resend dashboard
 const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID || "";
 
 export async function POST(req: NextRequest) {
@@ -37,9 +37,9 @@ export async function POST(req: NextRequest) {
 
     // 2. Send welcome email
     const { error } = await resend.emails.send({
-      from: "MAXI AI <onboarding@resend.dev>",
+      from: "FunFit AI <onboarding@resend.dev>",
       to: email,
-      subject: "Welcome to MAXI AI! 🧬",
+      subject: "Welcome to FunFit AI! 🧬",
       html: getWelcomeEmailHTML(name || "there"),
     });
 
@@ -71,7 +71,7 @@ function getWelcomeEmailHTML(name: string): string {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to MAXI AI</title>
+  <title>Welcome to FunFit AI</title>
 </head>
 <body style="margin:0;padding:0;background-color:#09090f;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
   <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#09090f;padding:40px 20px;">
@@ -85,10 +85,10 @@ function getWelcomeEmailHTML(name: string): string {
               <table cellpadding="0" cellspacing="0">
                 <tr>
                   <td style="background-color:rgba(59,130,246,0.15);border-radius:12px;padding:10px 14px;">
-                    <span style="color:#3b82f6;font-weight:900;font-size:20px;">M</span>
+                    <span style="color:#3b82f6;font-weight:900;font-size:20px;">F</span>
                   </td>
                   <td style="padding-left:10px;">
-                    <span style="color:#ffffff;font-weight:700;font-size:22px;letter-spacing:-0.5px;">MAXI </span>
+                    <span style="color:#ffffff;font-weight:700;font-size:22px;letter-spacing:-0.5px;">FunFit </span>
                     <span style="color:#3b82f6;font-weight:700;font-size:22px;">AI</span>
                   </td>
                 </tr>
@@ -113,7 +113,7 @@ function getWelcomeEmailHTML(name: string): string {
 
               <!-- Heading -->
               <h1 style="color:#ffffff;font-size:28px;font-weight:800;text-align:center;margin:0 0 16px;line-height:1.2;">
-                Hey ${name}, welcome to the MAXI AI community!
+                Hey ${name}, welcome to the FunFit AI community!
               </h1>
 
               <p style="color:#8a8a9a;font-size:15px;line-height:1.7;text-align:center;margin:0 0 32px;">
@@ -162,7 +162,7 @@ function getWelcomeEmailHTML(name: string): string {
                         <td style="color:#3b82f6;font-size:18px;padding-right:12px;vertical-align:top;">&#129504;</td>
                         <td>
                           <strong style="color:#ffffff;font-size:14px;">Optimization Tips</strong>
-                          <p style="color:#8a8a9a;font-size:13px;margin:4px 0 0;line-height:1.5;">Actionable tips to get the most out of MAXI AI and your health journey.</p>
+                          <p style="color:#8a8a9a;font-size:13px;margin:4px 0 0;line-height:1.5;">Actionable tips to get the most out of FunFit AI and your health journey.</p>
                         </td>
                       </tr>
                     </table>
@@ -177,8 +177,8 @@ function getWelcomeEmailHTML(name: string): string {
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
-                    <a href="https://apps.apple.com/app/maxi-ai" style="display:inline-block;background-color:#3b82f6;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:14px 32px;border-radius:50px;">
-                      Download MAXI AI
+                    <a href="https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107" style="display:inline-block;background-color:#3b82f6;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:14px 32px;border-radius:50px;">
+                      Download FunFit AI
                     </a>
                   </td>
                 </tr>
@@ -191,10 +191,10 @@ function getWelcomeEmailHTML(name: string): string {
           <tr>
             <td style="padding:32px 0;text-align:center;">
               <p style="color:#555555;font-size:12px;margin:0 0 8px;">
-                You're receiving this because you subscribed to MAXI AI updates.
+                You're receiving this because you subscribed to FunFit AI updates.
               </p>
               <p style="color:#444444;font-size:12px;margin:0;">
-                &copy; ${new Date().getFullYear()} MAXI AI. All rights reserved.
+                &copy; ${new Date().getFullYear()} FunFit AI. All rights reserved.
               </p>
             </td>
           </tr>

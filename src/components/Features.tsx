@@ -66,7 +66,7 @@ export default function AppShowcase() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
-            Explore <span className="text-gradient">MAXI AI</span>
+            Explore <span className="text-gradient">FunFit AI</span>
           </h2>
           <p className="text-dark-muted text-lg max-w-2xl">
             Track your nutrition, optimize your hormones, and get AI-powered insights

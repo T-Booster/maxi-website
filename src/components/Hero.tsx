@@ -31,7 +31,7 @@ export default function Hero() {
             >
               Your Health,
               <br />
-              <span className="text-gradient">Maximized by AI</span>
+              <span className="text-gradient">Powered by AI</span>
             </motion.h1>
 
             <motion.p
@@ -51,7 +51,7 @@ export default function Hero() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <a
-                href="https://apps.apple.com/lb/app/maxi-ai-maximize-your-health/id6754610107"
+                href="https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#09090f] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm"
@@ -81,14 +81,14 @@ export default function Hero() {
               <div className="phone-frame w-[240px] md:w-[270px] animate-float">
                 <img
                   src="/mockups/1.png"
-                  alt="MAXI AI - Home Dashboard"
+                  alt="FunFit AI - Home Dashboard"
                   className="w-full aspect-[9/19.5] object-cover bg-dark-surface"
                 />
               </div>
               <div className="phone-frame w-[240px] md:w-[270px] absolute top-12 left-40 md:left-48 animate-float-delayed">
                 <img
                   src="/mockups/2.png"
-                  alt="MAXI AI - Food Scanner"
+                  alt="FunFit AI - Food Scanner"
                   className="w-full aspect-[9/19.5] object-cover bg-dark-surface"
                 />
               </div>
