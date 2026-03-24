@@ -84,12 +84,12 @@ function getWelcomeEmailHTML(name: string): string {
             <td align="center" style="padding-bottom:32px;">
               <table cellpadding="0" cellspacing="0">
                 <tr>
-                  <td style="background-color:rgba(59,130,246,0.15);border-radius:12px;padding:10px 14px;">
-                    <span style="color:#3b82f6;font-weight:900;font-size:20px;">F</span>
+                  <td style="background-color:rgba(232,96,28,0.15);border-radius:12px;padding:10px 14px;">
+                    <span style="color:#e8601c;font-weight:900;font-size:20px;">F</span>
                   </td>
                   <td style="padding-left:10px;">
                     <span style="color:#ffffff;font-weight:700;font-size:22px;letter-spacing:-0.5px;">FunFit </span>
-                    <span style="color:#3b82f6;font-weight:700;font-size:22px;">AI</span>
+                    <span style="color:#e8601c;font-weight:700;font-size:22px;">AI</span>
                   </td>
                 </tr>
               </table>
@@ -104,7 +104,7 @@ function getWelcomeEmailHTML(name: string): string {
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center" style="padding-bottom:24px;">
-                    <span style="display:inline-block;background-color:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.2);border-radius:50px;padding:8px 20px;color:#3b82f6;font-size:13px;font-weight:600;">
+                    <span style="display:inline-block;background-color:rgba(232,96,28,0.1);border:1px solid rgba(232,96,28,0.2);border-radius:50px;padding:8px 20px;color:#e8601c;font-size:13px;font-weight:600;">
                       &#10003; You're Subscribed!
                     </span>
                   </td>
@@ -133,7 +133,7 @@ function getWelcomeEmailHTML(name: string): string {
                   <td style="padding:10px 0;">
                     <table cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="color:#3b82f6;font-size:18px;padding-right:12px;vertical-align:top;">&#9889;</td>
+                        <td style="color:#e8601c;font-size:18px;padding-right:12px;vertical-align:top;">&#9889;</td>
                         <td>
                           <strong style="color:#ffffff;font-size:14px;">Feature Updates</strong>
                           <p style="color:#8a8a9a;font-size:13px;margin:4px 0 0;line-height:1.5;">Be the first to know about new features, improvements, and app updates.</p>
@@ -146,7 +146,7 @@ function getWelcomeEmailHTML(name: string): string {
                   <td style="padding:10px 0;">
                     <table cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="color:#3b82f6;font-size:18px;padding-right:12px;vertical-align:top;">&#127942;</td>
+                        <td style="color:#e8601c;font-size:18px;padding-right:12px;vertical-align:top;">&#127942;</td>
                         <td>
                           <strong style="color:#ffffff;font-size:14px;">Health Articles</strong>
                           <p style="color:#8a8a9a;font-size:13px;margin:4px 0 0;line-height:1.5;">Science-backed nutrition, hormone optimization, and wellness deep-dives.</p>
@@ -159,7 +159,7 @@ function getWelcomeEmailHTML(name: string): string {
                   <td style="padding:10px 0;">
                     <table cellpadding="0" cellspacing="0">
                       <tr>
-                        <td style="color:#3b82f6;font-size:18px;padding-right:12px;vertical-align:top;">&#129504;</td>
+                        <td style="color:#e8601c;font-size:18px;padding-right:12px;vertical-align:top;">&#129504;</td>
                         <td>
                           <strong style="color:#ffffff;font-size:14px;">Optimization Tips</strong>
                           <p style="color:#8a8a9a;font-size:13px;margin:4px 0 0;line-height:1.5;">Actionable tips to get the most out of FunFit AI and your health journey.</p>
@@ -177,7 +177,7 @@ function getWelcomeEmailHTML(name: string): string {
               <table width="100%" cellpadding="0" cellspacing="0">
                 <tr>
                   <td align="center">
-                    <a href="https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107" style="display:inline-block;background-color:#3b82f6;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:14px 32px;border-radius:50px;">
+                    <a href="https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107" style="display:inline-block;background-color:#e8601c;color:#ffffff;font-size:14px;font-weight:700;text-decoration:none;padding:14px 32px;border-radius:50px;">
                       Download FunFit AI
                     </a>
                   </td>

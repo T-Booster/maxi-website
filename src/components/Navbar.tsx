@@ -33,7 +33,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2.5">
-          <img src="/maxilogo.png" alt="FunFit AI" className="w-9 h-9 rounded-xl" />
+          <img src="/funfitlogo.png" alt="FunFit AI" className="w-9 h-9 rounded-xl" />
           <span className="text-xl font-bold tracking-tight text-white">
             FunFit <span className="text-primary">AI</span>
           </span>
