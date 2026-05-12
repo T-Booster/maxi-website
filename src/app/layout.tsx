@@ -2,10 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FunFit AI — Optimize Your Health with AI",
+  title: "FunFit AI. The gym with AI coaches.",
   description:
-    "The AI-powered health app that scans your food, tracks your hormones, and gamifies your wellness journey. Download on the App Store.",
+    "Step into a 3D gym where 8 AI coaches actually train you. Get plans built for your body, scan meals for instant macros, and build real habits. Download on the App Store.",
   keywords: [
+    "AI fitness coach",
+    "3D fitness app",
+    "AI gym",
     "health app",
     "AI nutrition",
     "testosterone optimization",
@@ -16,17 +19,17 @@ export const metadata: Metadata = {
     "gamified health",
   ],
   openGraph: {
-    title: "FunFit AI — Optimize Your Health with AI",
+    title: "FunFit AI. The gym with AI coaches.",
     description:
-      "Scan food. Track hormones. Level up your health. Download now.",
+      "A 3D gym where 8 AI coaches actually train you. Scan meals, hit your macros, level up.",
     type: "website",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "FunFit AI — Optimize Your Health with AI",
+    title: "FunFit AI. The gym with AI coaches.",
     description:
-      "Scan food. Track hormones. Level up your health. Download now.",
+      "A 3D gym where 8 AI coaches actually train you. Scan meals, hit your macros, level up.",
   },
 };
 

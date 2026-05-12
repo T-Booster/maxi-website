@@ -32,3 +32,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw video / source media. Keep these out of git, they belong on a CDN
+# or stay local. The hero pulls its loop from YouTube via iframe.
+*.mp4
+*.mov
+*.webm
+

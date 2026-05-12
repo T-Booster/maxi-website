@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import Coaches from "@/components/Coaches";
 import Mission from "@/components/SocialProof";
 import AppShowcase from "@/components/Features";
 import HowItWorks from "@/components/HowItWorks";
@@ -12,6 +13,7 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
+      <Coaches />
       <Mission />
       <AppShowcase />
       <HowItWorks />
