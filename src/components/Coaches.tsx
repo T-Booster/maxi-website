@@ -73,7 +73,7 @@ const coaches: Coach[] = [
     id: "sash",
     name: "Sash",
     photo: "/coaches/sash.jpg",
-    title: "TRAINER",
+    title: "ATHLETE",
     specialty: "Conditioning",
   },
 ];
