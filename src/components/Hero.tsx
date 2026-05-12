@@ -83,39 +83,26 @@ export default function Hero() {
             className="relative flex justify-center items-center lg:justify-end"
           >
             <div className="relative">
-              {/* Primary slot: the gym game video, embedded from YouTube
-                  but presented as a native looping reel. We hide every
-                  YouTube affordance:
-                    1. `youtube-nocookie.com` + `modestbranding=1`
-                       suppresses cookies and most chrome
-                    2. `controls=0&disablekb=1&fs=0&rel=0` strips the
-                       remaining player UI
-                    3. `pointer-events-none` blocks every click so a tap
-                       can't pause it or open YouTube
-                    4. The iframe is intentionally oversized and
-                       absolutely positioned so the bottom-right "Watch
-                       on YouTube" watermark sits outside the visible
-                       crop of the phone frame
-                    5. `loop=1&playlist=ID` is the documented trick to
-                       make a single video loop forever via iframe API
-                  Aspect of YouTube Shorts is 9:16, phone frame is
-                  9:19.5, so a small horizontal crop is unavoidable and
-                  doesn't hurt since the action is centred. */}
+              {/* Primary slot: the gym game video, self-hosted from
+                  /public/video so there's zero third-party branding,
+                  no YouTube watermark, no embed permission to fight,
+                  and the asset is served from Vercel's edge CDN. The
+                  source MP4 is compressed to ~1.7 MB so first paint
+                  stays snappy. Native <video> handles autoplay, loop,
+                  and mute without any JS. */}
               <div className="phone-frame w-[240px] md:w-[270px] animate-float">
-                <div className="relative w-full aspect-[9/19.5] overflow-hidden bg-black">
-                  <iframe
-                    src="https://www.youtube-nocookie.com/embed/8MS93S93S8Y?autoplay=1&mute=1&loop=1&playlist=8MS93S93S8Y&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&fs=0&iv_load_policy=3&cc_load_policy=0&showinfo=0"
-                    title="FunFit AI 3D gym, walking up to a coach"
-                    allow="autoplay; encrypted-media; picture-in-picture; web-share"
-                    className="absolute pointer-events-none border-0"
-                    style={{
-                      width: "125%",
-                      height: "115%",
-                      top: "-7.5%",
-                      left: "-12.5%",
-                    }}
-                  />
-                </div>
+                <video
+                  className="w-full aspect-[9/19.5] object-cover bg-dark-surface"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="auto"
+                  poster="/mockups/1.png"
+                  aria-label="FunFit AI 3D gym, walking up to a coach"
+                >
+                  <source src="/video/gym-loop.mp4" type="video/mp4" />
+                </video>
               </div>
 
               {/* Secondary: food scanner screenshot, floating behind and to
