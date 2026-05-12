@@ -75,45 +75,31 @@ export default function Hero() {
             </motion.div>
           </div>
 
-          {/* Right: gym game video (front) + food scanner mockup (back) */}
+          {/* Right: gym game video, alone, centered in the column.
+              We dropped the secondary floating mockup so the single
+              hero asset gets full attention — the gym is the story. */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="relative flex justify-center items-center lg:justify-end"
+            className="relative flex justify-center items-center"
           >
-            <div className="relative">
-              {/* Primary slot: the gym game video, self-hosted from
-                  /public/video so there's zero third-party branding,
-                  no YouTube watermark, no embed permission to fight,
-                  and the asset is served from Vercel's edge CDN. The
-                  source MP4 is compressed to ~1.7 MB so first paint
-                  stays snappy. Native <video> handles autoplay, loop,
-                  and mute without any JS. */}
-              <div className="phone-frame w-[240px] md:w-[270px] animate-float">
-                <video
-                  className="w-full aspect-[9/19.5] object-cover bg-dark-surface"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                  preload="auto"
-                  poster="/mockups/1.png"
-                  aria-label="FunFit AI 3D gym, walking up to a coach"
-                >
-                  <source src="/video/gym-loop.mp4" type="video/mp4" />
-                </video>
-              </div>
-
-              {/* Secondary: food scanner screenshot, floating behind and to
-                  the right so the gym video stays the primary draw. */}
-              <div className="phone-frame w-[240px] md:w-[270px] absolute top-12 left-40 md:left-48 animate-float-delayed">
-                <img
-                  src="/mockups/2.png"
-                  alt="FunFit AI food scanner"
-                  className="w-full aspect-[9/19.5] object-cover bg-dark-surface"
-                />
-              </div>
+            {/* Self-hosted gym game loop from /public/video. ~1.7 MB,
+                served via Vercel's edge CDN. Native <video> handles
+                autoplay, loop, and mute without any JS. */}
+            <div className="phone-frame w-[260px] md:w-[300px] animate-float">
+              <video
+                className="w-full aspect-[9/19.5] object-cover bg-dark-surface"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                poster="/mockups/1.png"
+                aria-label="FunFit AI 3D gym, walking up to a coach"
+              >
+                <source src="/video/gym-loop.mp4" type="video/mp4" />
+              </video>
             </div>
           </motion.div>
         </div>
