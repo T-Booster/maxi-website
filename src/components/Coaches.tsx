@@ -13,7 +13,7 @@ interface Coach {
   tag?: CoachTag;
 }
 
-// Source of truth for the eight coaches who live inside the FunFit gym.
+// Source of truth for the coaches who live inside the FunFit gym.
 // Photos sit in /public/coaches/*.jpg. Tag chips mirror the in-app palette:
 // orange for popular, green for new, yellow for legend.
 const coaches: Coach[] = [
@@ -33,26 +33,11 @@ const coaches: Coach[] = [
     specialty: "Foundations",
   },
   {
-    id: "eddie",
-    name: "Eddie Hall",
-    photo: "/coaches/eddie.jpg",
-    title: "WORLD'S STRONGEST",
-    specialty: "Strength and power",
-    tag: "MOST POPULAR",
-  },
-  {
     id: "eric",
     name: "Ericthgt",
     photo: "/coaches/eric.jpg",
     title: "ATHLETE",
     specialty: "Conditioning",
-  },
-  {
-    id: "johny",
-    name: "Johny Munster",
-    photo: "/coaches/johny.jpg",
-    title: "BODYBUILDER",
-    specialty: "Mass building",
   },
   {
     id: "freddie",
@@ -111,7 +96,7 @@ export default function Coaches() {
           transition={{ duration: 0.5 }}
         >
           <span className="inline-flex items-center px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-sm text-primary font-medium mb-6">
-            8 AI Coaches
+            6 AI Coaches
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
             Pick the voice that{" "}
