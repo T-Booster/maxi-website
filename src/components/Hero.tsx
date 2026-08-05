@@ -51,10 +51,10 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-col sm:flex-row gap-4"
             >
+              {/* Route through /get: real browsers bounce straight to the App
+                  Store, in-app browsers (Instagram etc.) get the escape flow. */}
               <a
-                href="https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="/get"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-[#09090f] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm"
               >
                 <svg

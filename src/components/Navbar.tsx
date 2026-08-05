@@ -50,10 +50,10 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
+          {/* /get bounces real browsers to the App Store and gives in-app
+              browsers (Instagram etc.) the escape flow. */}
           <a
-            href="https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/get"
             className="px-5 py-2.5 bg-white text-[#09090f] text-sm font-semibold rounded-full hover:bg-white/90 transition-colors"
           >
             Get the App
@@ -85,9 +85,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="/get"
             onClick={() => setMobileOpen(false)}
             className="mt-3 block text-center px-5 py-3 bg-white text-[#09090f] font-semibold rounded-full"
           >
