@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import StoreLink from "./StoreLink";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -50,14 +51,9 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          {/* /get bounces real browsers to the App Store and gives in-app
-              browsers (Instagram etc.) the escape flow. */}
-          <a
-            href="/get"
-            className="px-5 py-2.5 bg-white text-[#09090f] text-sm font-semibold rounded-full hover:bg-white/90 transition-colors"
-          >
+          <StoreLink className="px-5 py-2.5 bg-white text-[#09090f] text-sm font-semibold rounded-full hover:bg-white/90 transition-colors">
             Get the App
-          </a>
+          </StoreLink>
         </div>
 
         <button
@@ -84,13 +80,12 @@ export default function Navbar() {
               {link.label}
             </a>
           ))}
-          <a
-            href="/get"
+          <StoreLink
             onClick={() => setMobileOpen(false)}
             className="mt-3 block text-center px-5 py-3 bg-white text-[#09090f] font-semibold rounded-full"
           >
             Get the App
-          </a>
+          </StoreLink>
         </motion.div>
       )}
     </motion.nav>
