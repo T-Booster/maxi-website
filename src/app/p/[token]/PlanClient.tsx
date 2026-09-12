@@ -9,6 +9,8 @@ const SUPABASE_URL = "https://jqvbgtmiqsgpwmosogwi.supabase.co";
 const SUPABASE_ANON =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxdmJndG1pcXNncHdtb3NvZ3dpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjExMDgzNjEsImV4cCI6MjA3NjY4NDM2MX0.7Kd5uZGVA5W5mrR0Z6CW4XMCd1OtEV0YCXkitQHveoo";
 const APP_STORE = "https://apps.apple.com/app/id6754610107";
+const PLAY_STORE =
+  "https://play.google.com/store/apps/details?id=com.influogen.tboost.ai";
 
 type Shared = {
   success?: boolean;
@@ -49,6 +51,20 @@ export default function PlanClient({ token }: { token: string | null }) {
     token ? "loading" : "error"
   );
   const [data, setData] = useState<Shared | null>(null);
+  // Set after mount, never during render: the server has no user agent, so
+  // sniffing it while rendering would cause a hydration mismatch.
+  const [android, setAndroid] = useState(false);
+
+  useEffect(() => {
+    setAndroid(/Android/i.test(navigator.userAgent));
+  }, []);
+
+  const store = android ? PLAY_STORE : APP_STORE;
+  // Chrome opens the app if installed, else goes to browser_fallback_url itself,
+  // so Android needs no timer. Still not a same-origin https link.
+  const androidIntent = token
+    ? `intent://plan/${token}#Intent;scheme=maxiai;package=com.influogen.tboost.ai;S.browser_fallback_url=${encodeURIComponent(PLAY_STORE)};end`
+    : PLAY_STORE;
 
   useEffect(() => {
     if (!token) return;
@@ -99,6 +115,10 @@ export default function PlanClient({ token }: { token: string | null }) {
   function openInApp(e: React.MouseEvent) {
     e.preventDefault();
     if (!token) return;
+    if (android) {
+      window.location.href = androidIntent;
+      return;
+    }
     let left = false;
     const bail = () => {
       if (document.hidden) left = true;
@@ -107,7 +127,7 @@ export default function PlanClient({ token }: { token: string | null }) {
     window.location.href = `maxiai://plan/${token}`;
     setTimeout(() => {
       document.removeEventListener("visibilitychange", bail);
-      if (!left && !document.hidden) window.location.href = APP_STORE;
+      if (!left && !document.hidden) window.location.href = store;
     }, 1500);
   }
 
@@ -145,7 +165,7 @@ export default function PlanClient({ token }: { token: string | null }) {
             <p>
               It may have expired or been removed by the person who shared it.
             </p>
-            <a className="cta" style={{ marginTop: 18 }} href={APP_STORE}>
+            <a className="cta" style={{ marginTop: 18 }} href={store}>
               Get FunFit AI
             </a>
           </div>
@@ -187,18 +207,22 @@ export default function PlanClient({ token }: { token: string | null }) {
               </div>
             )}
 
-            <a className="cta" href={`maxiai://plan/${token}`} onClick={openInApp}>
+            <a
+              className="cta"
+              href={android ? androidIntent : `maxiai://plan/${token}`}
+              onClick={openInApp}
+            >
               Add this plan to my app
             </a>
             <p className="cta-sub">Opens in FunFit AI — free to download</p>
-            <a className="cta-ghost" href={APP_STORE}>
+            <a className="cta-ghost" href={store}>
               Don&apos;t have the app? Get it free
             </a>
 
             {isWorkout ? <WorkoutBody plan={plan} /> : <MealBody plan={plan} />}
 
             <div className="sticky">
-              <a className="cta" href={APP_STORE}>
+              <a className="cta" href={store}>
                 Add this plan — Get FunFit AI
               </a>
               <p className="cta-sub">

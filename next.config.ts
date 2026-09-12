@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         source: "/.well-known/apple-app-site-association",
         destination: "/api/aasa",
       },
+      // Android App Links verification: same no-redirect, JSON-only rule.
+      {
+        source: "/.well-known/assetlinks.json",
+        destination: "/api/assetlinks",
+      },
     ];
   },
 };
