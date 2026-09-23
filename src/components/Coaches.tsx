@@ -2,61 +2,51 @@
 
 import { motion } from "framer-motion";
 
-type CoachTag = "MOST POPULAR" | "NEW" | "LEGEND" | "IFBB PRO";
+type CoachTag = "MOST POPULAR" | "NEW";
 
 interface Coach {
   id: string;
   name: string;
+  handle: string;
   photo: string;
   title: string;
   specialty: string;
   tag?: CoachTag;
 }
 
-// Source of truth for the coaches who live inside the FunFit gym.
-// Photos sit in /public/coaches/*.jpg. Tag chips mirror the in-app palette:
-// orange for popular, green for new, yellow for legend.
+// Source of truth for the four selectable coaches in the app, in the
+// app's order. Photos sit in /public/coaches/*.jpg. Tag chips mirror the
+// in-app palette: orange for popular, green for new.
 const coaches: Coach[] = [
+  {
+    id: "heath",
+    name: "Heath Blessing",
+    handle: "@heath.lifts",
+    photo: "/coaches/heath.jpg",
+    title: "STRENGTH COACH",
+    specialty: "Foundations",
+  },
   {
     id: "geldi",
     name: "Geldi Zhara",
+    handle: "@geldizhara",
     photo: "/coaches/geldi.jpg",
     title: "BODYBUILDER",
     specialty: "Strength and form",
     tag: "NEW",
   },
   {
-    id: "heath",
-    name: "Heath Blessing",
-    photo: "/coaches/heath.jpg",
-    title: "STRENGTH COACH",
-    specialty: "Foundations",
-  },
-  {
     id: "eric",
     name: "Ericthgt",
+    handle: "@ericthgt",
     photo: "/coaches/eric.jpg",
     title: "ATHLETE",
     specialty: "Conditioning",
   },
   {
-    id: "freddie",
-    name: "Freddie McGowan",
-    photo: "/coaches/freddie.jpg",
-    title: "COACH",
-    specialty: "Discipline",
-  },
-  {
-    id: "greg",
-    name: "Greg Doucette",
-    photo: "/coaches/greg.jpg",
-    title: "IFBB PRO",
-    specialty: "Cutting and physique",
-    tag: "LEGEND",
-  },
-  {
     id: "sash",
     name: "Sash",
+    handle: "@sweatwithsash",
     photo: "/coaches/sash.jpg",
     title: "ATHLETE",
     specialty: "Conditioning",
@@ -71,10 +61,6 @@ function tagStyles(tag?: CoachTag): { bg: string; fg: string } {
       return { bg: "bg-primary", fg: "text-white" };
     case "NEW":
       return { bg: "bg-emerald-500", fg: "text-white" };
-    case "LEGEND":
-      return { bg: "bg-amber-400", fg: "text-[#09090f]" };
-    case "IFBB PRO":
-      return { bg: "bg-white/15", fg: "text-white" };
     default:
       return { bg: "bg-white/10", fg: "text-white" };
   }
@@ -96,7 +82,7 @@ export default function Coaches() {
           transition={{ duration: 0.5 }}
         >
           <span className="inline-flex items-center px-4 py-2 rounded-full border border-primary/30 bg-primary/10 text-sm text-primary font-medium mb-6">
-            6 AI Coaches
+            4 AI Coaches
           </span>
           <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
             Pick the voice that{" "}
@@ -104,8 +90,8 @@ export default function Coaches() {
           </h2>
           <p className="text-dark-muted text-lg max-w-2xl leading-relaxed">
             Each coach has their own personality, training style, and voice.
-            Walk up to one inside the gym, talk shop, get a plan, get sent to
-            the right machine.
+            Chat with the one that fits you, talk shop, and get plans and
+            guidance built for your goals.
           </p>
         </motion.div>
       </div>
@@ -141,6 +127,9 @@ export default function Coaches() {
                 <div className="p-5">
                   <div className="text-white font-bold text-lg leading-tight">
                     {coach.name}
+                  </div>
+                  <div className="text-dark-muted text-sm mt-0.5">
+                    {coach.handle}
                   </div>
                   <div className="text-primary text-[11px] font-black tracking-widest mt-1">
                     {coach.title}

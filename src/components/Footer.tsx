@@ -10,10 +10,12 @@ export default function Footer() {
             </span>
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-dark-muted">
-            <a href="#features" className="hover:text-white transition-colors">Features</a>
-            <a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a>
-            <a href="#faq" className="hover:text-white transition-colors">FAQ</a>
+          <div className="flex flex-wrap items-center justify-center gap-6 text-sm text-dark-muted">
+            <a href="/#features" className="hover:text-white transition-colors">Features</a>
+            <a href="/#how-it-works" className="hover:text-white transition-colors">How It Works</a>
+            <a href="/#faq" className="hover:text-white transition-colors">FAQ</a>
+            <a href="/privacy" className="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/terms" className="hover:text-white transition-colors">Terms of Service</a>
           </div>
 
           <p className="text-sm text-dark-muted/60">

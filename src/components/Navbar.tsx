@@ -15,11 +15,12 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Absolute paths so the anchors also work from /privacy and /terms.
   const links = [
-    { label: "Coaches", href: "#coaches" },
-    { label: "Features", href: "#features" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "FAQ", href: "#faq" },
+    { label: "Coaches", href: "/#coaches" },
+    { label: "Features", href: "/#features" },
+    { label: "How It Works", href: "/#how-it-works" },
+    { label: "FAQ", href: "/#faq" },
   ];
 
   return (
@@ -34,7 +35,7 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2.5">
+        <a href="/" className="flex items-center gap-2.5">
           <img src="/funfitlogo.png" alt="FunFit AI" className="w-9 h-9 rounded-xl" />
           <span className="text-xl font-bold tracking-tight text-white">
             FunFit <span className="text-primary">AI</span>

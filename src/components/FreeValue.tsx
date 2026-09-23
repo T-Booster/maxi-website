@@ -23,7 +23,7 @@ const faqs = [
   {
     question: "How much does FunFit AI cost?",
     answer:
-      "FunFit AI is a premium subscription app. A subscription is required to access all features including the AI food scanner, hormone tracking, daily challenges, leaderboards, and AI-generated plans. You can view the current pricing on the App Store before subscribing.",
+      "FunFit AI is a premium subscription app. A subscription is required to access all features including the AI food scanner, hormone tracking, daily challenges, leaderboards, and AI-generated plans. You can view the current pricing on the App Store or Google Play before subscribing.",
   },
   {
     question: "What challenges are available?",
