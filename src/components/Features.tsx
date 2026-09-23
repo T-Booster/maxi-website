@@ -2,9 +2,28 @@
 
 import { useRef } from "react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import {
+  Bookmark,
+  ChevronLeft,
+  ChevronRight,
+  Droplets,
+  Scan,
+  Trophy,
+  Users,
+  type LucideIcon,
+} from "lucide-react";
 
-const features = [
+// Cards show an app screenshot where we have one. The newer features have
+// no screenshot yet, so they fall back to `icon` in the same phone frame —
+// drop a /mockups image in and delete the icon to swap one over.
+interface Feature {
+  title: string;
+  description: string;
+  image?: string;
+  icon?: LucideIcon;
+}
+
+const features: Feature[] = [
   {
     image: "/mockups/3.png",
     title: "Workout Tracking",
@@ -27,11 +46,11 @@ const features = [
     image: "/mockups/6.png",
     title: "AI Food Analysis",
     description:
-      "Every scan gives you a T-Impact Score, full macro breakdown, calories, protein, carbs, and fats. Powered by USDA-verified data.",
+      "Every scan gives you a Max Potential Score, full macro breakdown, calories, protein, carbs, and fats. Powered by USDA-verified data.",
   },
   {
     image: "/mockups/7.png",
-    title: "Hormone Optimization Score",
+    title: "Max Potential Score",
     description:
       "A personalized 0-100 score tracking your natural optimization level across sleep, nutrition, and lifestyle factors.",
   },
@@ -40,6 +59,34 @@ const features = [
     title: "Daily Challenges & Home",
     description:
       "Daily wisdom, active challenges, and your personalized dashboard. Stay on track with gamified habits across 7 categories.",
+  },
+  {
+    icon: Scan,
+    title: "Body Scan",
+    description:
+      "AI physique scoring from photos, with a personalized plan.",
+  },
+  {
+    icon: Users,
+    title: "Communities & Group Chats",
+    description:
+      "Join groups, share progress, and chat with members.",
+  },
+  {
+    icon: Trophy,
+    title: "Leaderboards & Hall of Fame",
+    description:
+      "Global XP rankings and weekly top-3 podiums.",
+  },
+  {
+    icon: Bookmark,
+    title: "Saved Recipes",
+    description: "Save meals you log and reuse them in one tap.",
+  },
+  {
+    icon: Droplets,
+    title: "Water Tracking",
+    description: "A personalized daily hydration target.",
   },
 ];
 
@@ -87,11 +134,24 @@ export default function AppShowcase() {
           {features.map((feature, i) => (
             <div key={i} className="flex-shrink-0 w-[280px]">
               <div className="phone-frame w-full mb-6">
-                <img
-                  src={feature.image}
-                  alt={feature.title}
-                  className="w-full aspect-[9/19.5] object-cover bg-dark-surface"
-                />
+                {feature.image ? (
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="w-full aspect-[9/19.5] object-cover bg-dark-surface"
+                  />
+                ) : (
+                  <div className="w-full aspect-[9/19.5] bg-dark-surface flex items-center justify-center">
+                    {feature.icon && (
+                      <feature.icon
+                        size={48}
+                        strokeWidth={1.25}
+                        className="text-primary/40"
+                        aria-hidden="true"
+                      />
+                    )}
+                  </div>
+                )}
               </div>
               <h3 className="text-white text-lg font-bold mb-2">{feature.title}</h3>
               <p className="text-dark-muted text-sm leading-relaxed">{feature.description}</p>

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Zap, Trophy, Target, ShieldCheck } from "lucide-react";
 
 const stats = [
-  { icon: Zap, value: "6+", label: "AI-Powered Features" },
+  { icon: Zap, value: "11", label: "App Features" },
   { icon: Trophy, value: "30", label: "Levels to Master" },
   { icon: Target, value: "7", label: "Challenge Categories" },
   { icon: ShieldCheck, value: "USDA", label: "Verified Data" },

@@ -13,10 +13,10 @@ const faqs = [
   {
     question: "How does the AI food scanner work?",
     answer:
-      "Point your camera at any meal and our AI instantly identifies ingredients, calculates macros and calories, and gives you a hormone optimization score. All data is cross-referenced with the USDA FoodData Central database for accuracy. You can also scan barcodes or search foods manually.",
+      "Point your camera at any meal and our AI instantly identifies ingredients, calculates macros and calories, and gives you a Max Potential Score. All data is cross-referenced with the USDA FoodData Central database for accuracy. You can also scan barcodes or search foods manually.",
   },
   {
-    question: "What is the Hormone Optimization Score?",
+    question: "What is the Max Potential Score?",
     answer:
       "It's a personalized 0-100 score that tracks your daily progress across five health pillars: sleep, nutrition, training, lifestyle, and consistency. Every food scan, workout, and challenge completion feeds into your score, giving you a clear picture of your overall optimization.",
   },
@@ -28,7 +28,7 @@ const faqs = [
   {
     question: "What challenges are available?",
     answer:
-      "FunFit AI includes 7 challenge categories: Nutrition (sugar detox), Sleep (screen-free nights), Hydration (alcohol-free), Sport (workout routines), Sunshine (outdoor time), Stress (cold exposure), and discipline challenges. Each has daily checklists, streak tracking, and XP rewards.",
+      "FunFit AI includes 7 challenge categories: Nutrition (sugar detox), Sleep (screen-free nights), Hydration (alcohol-free), Sport (workout routines), Sunshine (outdoor time), Stress (cold exposure), and Retention. Each has daily checklists, streak tracking, and XP rewards.",
   },
   {
     question: "How does the leveling system work?",
