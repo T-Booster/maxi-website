@@ -6,9 +6,9 @@ import { ChevronDown } from "lucide-react";
 
 const faqs = [
   {
-    question: "What is FunFit AI?",
+    question: "What is FunFit?",
     answer:
-      "FunFit AI is an AI-powered health optimization app that combines food scanning, hormone tracking, gamified challenges, and a global leaderboard. It helps you understand and improve your health through science-backed insights and verified nutritional data.",
+      "FunFit is an AI-powered health optimization app that combines food scanning, hormone tracking, gamified challenges, and a global leaderboard. It helps you understand and improve your health through science-backed insights and verified nutritional data.",
   },
   {
     question: "How does the AI food scanner work?",
@@ -21,14 +21,14 @@ const faqs = [
       "It's a personalized 0-100 score that tracks your daily progress across five health pillars: sleep, nutrition, training, lifestyle, and consistency. Every food scan, workout, and challenge completion feeds into your score, giving you a clear picture of your overall optimization.",
   },
   {
-    question: "How much does FunFit AI cost?",
+    question: "How much does FunFit cost?",
     answer:
-      "FunFit AI is a premium subscription app. A subscription is required to access all features including the AI food scanner, hormone tracking, daily challenges, leaderboards, and AI-generated plans. You can view the current pricing on the App Store or Google Play before subscribing.",
+      "FunFit is a premium subscription app. A subscription is required to access all features including the AI food scanner, hormone tracking, daily challenges, leaderboards, and AI-generated plans. You can view the current pricing on the App Store or Google Play before subscribing.",
   },
   {
     question: "What challenges are available?",
     answer:
-      "FunFit AI includes 7 challenge categories: Nutrition (sugar detox), Sleep (screen-free nights), Hydration (alcohol-free), Sport (workout routines), Sunshine (outdoor time), Stress (cold exposure), and Retention. Each has daily checklists, streak tracking, and XP rewards.",
+      "FunFit includes 7 challenge categories: Nutrition (sugar detox), Sleep (screen-free nights), Hydration (alcohol-free), Sport (workout routines), Sunshine (outdoor time), Stress (cold exposure), and Retention. Each has daily checklists, streak tracking, and XP rewards.",
   },
   {
     question: "How does the leveling system work?",

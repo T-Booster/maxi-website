@@ -44,15 +44,15 @@ export async function generateMetadata({
   const origin = await currentOrigin();
 
   return {
-    title: "Shared plan · FunFit AI",
+    title: "Shared plan · FunFit",
     description:
-      "A training plan shared with you on FunFit AI. Open it in the app to start training.",
+      "A training plan shared with you on FunFit. Open it in the app to start training.",
     referrer: "no-referrer",
     openGraph: {
-      title: "A training plan on FunFit AI",
+      title: "A training plan on FunFit",
       description: "Someone shared their plan with you. Tap to add it to your app.",
       type: "website",
-      siteName: "FunFit AI",
+      siteName: "FunFit",
     },
     twitter: { card: "summary_large_image" },
     other: {

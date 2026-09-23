@@ -149,7 +149,7 @@ export default function PlanClient({ token }: { token: string | null }) {
       <div className="wrap">
         <div className="brand">
           <div className="logo">FF</div>
-          <b>FunFit AI</b>
+          <b>FunFit</b>
         </div>
 
         {state === "loading" && (
@@ -166,7 +166,7 @@ export default function PlanClient({ token }: { token: string | null }) {
               It may have expired or been removed by the person who shared it.
             </p>
             <a className="cta" style={{ marginTop: 18 }} href={store}>
-              Get FunFit AI
+              Get FunFit
             </a>
           </div>
         )}
@@ -214,7 +214,7 @@ export default function PlanClient({ token }: { token: string | null }) {
             >
               Add this plan to my app
             </a>
-            <p className="cta-sub">Opens in FunFit AI — free to download</p>
+            <p className="cta-sub">Opens in FunFit — free to download</p>
             <a className="cta-ghost" href={store}>
               Don&apos;t have the app? Get it free
             </a>
@@ -223,7 +223,7 @@ export default function PlanClient({ token }: { token: string | null }) {
 
             <div className="sticky">
               <a className="cta" href={store}>
-                Add this plan — Get FunFit AI
+                Add this plan — Get FunFit
               </a>
               <p className="cta-sub">
                 Track workouts, scan meals, and train with an AI coach.
@@ -231,7 +231,7 @@ export default function PlanClient({ token }: { token: string | null }) {
             </div>
 
             <p className="foot">
-              Shared via <b>FunFit AI</b> · <a href="/privacy">Privacy</a> ·{" "}
+              Shared via <b>FunFit</b> · <a href="/privacy">Privacy</a> ·{" "}
               <a href="/terms">Terms</a>
             </p>
           </main>

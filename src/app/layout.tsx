@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "FunFit AI. Coaches that train you.",
+  title: "FunFit. Coaches that train you.",
   description:
     "Chat with four AI coaches for plans and guidance. Scan meals for instant macros, score your physique with body scans, and build real habits. Download on the App Store and Google Play.",
   keywords: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     "gamified health",
   ],
   openGraph: {
-    title: "FunFit AI. Coaches that train you.",
+    title: "FunFit. Coaches that train you.",
     description:
       "Four AI coaches you can chat with for plans and guidance. Scan meals, hit your macros, level up.",
     type: "website",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "FunFit AI. Coaches that train you.",
+    title: "FunFit. Coaches that train you.",
     description:
       "Four AI coaches you can chat with for plans and guidance. Scan meals, hit your macros, level up.",
   },

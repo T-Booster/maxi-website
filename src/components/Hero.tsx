@@ -96,8 +96,8 @@ export default function Hero() {
           >
             <div className="phone-frame w-[260px] md:w-[300px] animate-float">
               <img
-                src="/mockups/13.png"
-                alt="FunFit AI weight and progress tracking"
+                src="/mockups/home.webp"
+                alt="FunFit home screen with daily health score, macros and today's plan"
                 className="w-full aspect-[9/19.5] object-cover bg-dark-surface"
               />
             </div>

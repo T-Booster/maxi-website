@@ -20,8 +20,8 @@ export default function FinalCTA() {
           >
             <div className="phone-frame w-[260px] md:w-[300px] animate-float">
               <img
-                src="/mockups/12.png"
-                alt="FunFit AI App"
+                src="/mockups/home.webp"
+                alt="FunFit home screen"
                 className="w-full aspect-[9/19.5] object-cover bg-dark-surface"
               />
             </div>

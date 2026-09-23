@@ -4,9 +4,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2.5">
-            <img src="/funfitlogo.png" alt="FunFit AI" className="w-8 h-8 rounded-lg" />
+            <img src="/funfitlogo.png" alt="FunFit" className="w-8 h-8 rounded-lg" />
             <span className="text-lg font-bold tracking-tight text-white">
-              FunFit <span className="text-primary">AI</span>
+              FunFit
             </span>
           </div>
 
@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
 
           <p className="text-sm text-dark-muted/60">
-            &copy; 2026 FunFit AI. All rights reserved.
+            &copy; 2026 FunFit. All rights reserved.
           </p>
         </div>
       </div>

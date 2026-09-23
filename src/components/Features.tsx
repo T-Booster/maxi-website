@@ -7,9 +7,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Droplets,
-  Scan,
-  Trophy,
-  Users,
   type LucideIcon,
 } from "lucide-react";
 
@@ -25,13 +22,13 @@ interface Feature {
 
 const features: Feature[] = [
   {
-    image: "/mockups/3.png",
+    image: "/mockups/activities.webp",
     title: "Workout Tracking",
     description:
       "Log runs, walks, rides, hikes, swims, and gym sessions. Track duration, distance, and intensity with Apple Health integration.",
   },
   {
-    image: "/mockups/4.png",
+    image: "/mockups/food-scanner.webp",
     title: "AI Food Scanner",
     description:
       "Snap a photo, chat with AI, or browse the USDA database. Multiple ways to log your meals with instant nutrition analysis.",
@@ -43,7 +40,7 @@ const features: Feature[] = [
       "Your daily readiness score across nutrition, workouts, sleep, and more. See exactly where you stand and what to improve.",
   },
   {
-    image: "/mockups/6.png",
+    image: "/mockups/food-analysis.webp",
     title: "AI Food Analysis",
     description:
       "Every scan gives you a Max Potential Score, full macro breakdown, calories, protein, carbs, and fats. Powered by USDA-verified data.",
@@ -55,25 +52,25 @@ const features: Feature[] = [
       "A personalized 0-100 score tracking your natural optimization level across sleep, nutrition, and lifestyle factors.",
   },
   {
-    image: "/mockups/8.png",
+    image: "/mockups/home.webp",
     title: "Daily Challenges & Home",
     description:
       "Daily wisdom, active challenges, and your personalized dashboard. Stay on track with gamified habits across 7 categories.",
   },
   {
-    icon: Scan,
+    image: "/mockups/body-scan.webp",
     title: "Body Scan",
     description:
       "AI physique scoring from photos, with a personalized plan.",
   },
   {
-    icon: Users,
+    image: "/mockups/groups.webp",
     title: "Communities & Group Chats",
     description:
       "Join groups, share progress, and chat with members.",
   },
   {
-    icon: Trophy,
+    image: "/mockups/leaderboard.webp",
     title: "Leaderboards & Hall of Fame",
     description:
       "Global XP rankings and weekly top-3 podiums.",
@@ -113,7 +110,7 @@ export default function AppShowcase() {
           transition={{ duration: 0.5 }}
         >
           <h2 className="text-4xl md:text-5xl font-black text-white mb-5">
-            Explore <span className="text-gradient">FunFit AI</span>
+            Explore <span className="text-gradient">FunFit</span>
           </h2>
           <p className="text-dark-muted text-lg max-w-2xl">
             Track your nutrition, optimize your hormones, and get AI-powered insights
