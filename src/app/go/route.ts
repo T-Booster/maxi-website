@@ -1,26 +1,24 @@
 import { NextResponse } from "next/server";
+import { oneLinkFor } from "@/lib/onelink";
 
-// Clean server-side store redirect for the Instagram bio:
-// bio -> funfit.ai/go -> App Store or Google Play, by device.
+// Clean server-side store redirect for bios and posts:
+// funfit.ai/go -> AppsFlyer OneLink -> App Store or Google Play, by device.
+// Going through the OneLink is what credits the install to its source:
+//   funfit.ai/go            -> Instagram / TikTok when opened in their app,
+//                              otherwise "website"
+//   funfit.ai/go?s=ig|tt|web -> that source explicitly
+//   funfit.ai/go?c=<handle> -> creator link (media source "creators")
 // Kept as a 302 (temporary) so the destination can change later.
 
-const APP_STORE_URL =
-  "https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107";
-const PLAY_STORE_URL =
-  "https://play.google.com/store/apps/details?id=com.influogen.tboost.ai";
-
-// Android first: Android user agents also contain "Linux", and Chrome on
-// Android contains "Safari", so order matters. Everything that is not
-// Android falls through to the App Store, which keeps desktop and any
-// unrecognised device on the iOS listing as before.
-function storeFor(userAgent: string): string {
-  return /Android/i.test(userAgent) ? PLAY_STORE_URL : APP_STORE_URL;
-}
-
 export function GET(request: Request) {
-  const userAgent = request.headers.get("user-agent") ?? "";
-  // Vary so a cached Android redirect is never replayed to an iPhone.
-  return NextResponse.redirect(storeFor(userAgent), {
+  const { searchParams } = new URL(request.url);
+  const target = oneLinkFor({
+    s: searchParams.get("s"),
+    c: searchParams.get("c"),
+    userAgent: request.headers.get("user-agent") ?? "",
+  });
+  // Vary so a cached Instagram redirect is never replayed to another visitor.
+  return NextResponse.redirect(target, {
     status: 302,
     headers: { Vary: "User-Agent", "Cache-Control": "no-store" },
   });

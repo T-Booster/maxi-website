@@ -12,11 +12,23 @@
 // Served as raw HTML (no React/JS bundle) so the redirect runs the instant
 // the document parses. The googlechromes:// scheme rebuilds this page's own
 // URL from location.host, so it works on any domain / preview deploy.
+//
+// Tracking: the store is reached through an AppsFlyer OneLink so installs are
+// credited to their source (see src/lib/onelink.ts): ?c=<handle> for a
+// creator, ?s=ig|tt|web, or else the in-app browser the page is open in. In
+// an in-app browser the source is written into the URL (?s=ig), so "Open in
+// external browser", which reloads this URL, still credits Instagram.
+
+import {
+  CREATOR_HANDLE,
+  INSTAGRAM_UA,
+  ONELINK_BASE,
+  ONELINKS,
+  TIKTOK_UA,
+} from "@/lib/onelink";
 
 export const dynamic = "force-static";
 
-const STORE_URL =
-  "https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107";
 const PLAY_URL =
   "https://play.google.com/store/apps/details?id=com.influogen.tboost.ai";
 
@@ -31,22 +43,41 @@ const html = `<!doctype html>
 <title>Download FunFit</title>
 <link rel="icon" href="/funfitlogo.png">
 <script>
-  var ANDROID = /Android/i.test(navigator.userAgent);
-  var STORE = ANDROID ? "${PLAY_URL}" : "${STORE_URL}";
+  var UA = navigator.userAgent;
+  var ANDROID = /Android/i.test(UA);
+  var inApp = /Instagram|FBAN|FBAV|FB_IAB|musical_ly|Bytedance|TikTok/i.test(UA);
+
+  // Pick the tracked OneLink: creator handle, explicit source, or the app we are in.
+  var LINKS = ${JSON.stringify(ONELINKS)};
+  var q = new URLSearchParams(location.search);
+  var c = q.get("c");
+  var s = q.get("s");
+  if (!LINKS.hasOwnProperty(s)) s = ${INSTAGRAM_UA}.test(UA) ? "ig" : ${TIKTOK_UA}.test(UA) ? "tt" : "web";
+  var LINK = c && ${CREATOR_HANDLE}.test(c)
+    ? "${ONELINK_BASE}?af_xp=custom&pid=creators&c=" + encodeURIComponent(c.toLowerCase())
+    : LINKS[s];
+  if (inApp && !q.get("s") && !c) {
+    // "Open in external browser" reloads this URL: keep the source in it.
+    q.set("s", s);
+    try { history.replaceState(null, "", location.pathname + "?" + q.toString()); } catch (e) {}
+  }
+
+  // [url, ms to wait before trying the next one]
   var SCHEMES = ANDROID
     ? [
-        // Open the Play app directly, then fall back to the web listing.
-        "market://details?id=com.influogen.tboost.ai",
-        "${PLAY_URL}"
+        // The OneLink answers with market:// plus the tracking referrer.
+        // Give it time to load before falling back to untracked store links.
+        [LINK, 1800],
+        ["market://details?id=com.influogen.tboost.ai", 450],
+        ["${PLAY_URL}", 450]
       ]
     : [
         "itms-appss://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107",
         "itms-apps://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107",
-        // Reopen this same page in Chrome; its top script then redirects to the store.
-        "googlechromes://" + location.host + location.pathname
-      ];
-  var inApp = /Instagram|FBAN|FBAV|FB_IAB|musical_ly|Bytedance|TikTok/i.test(navigator.userAgent);
-  if (!inApp) location.replace(STORE);   // real browser, straight to the store
+        // Reopen this same page (source kept) in Chrome; its top script then redirects.
+        "googlechromes://" + location.host + location.pathname + location.search
+      ].map(function (u) { return [u, 450]; });
+  if (!inApp) location.replace(LINK);   // real browser, straight through the OneLink
 </script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -123,11 +154,18 @@ const html = `<!doctype html>
       document.getElementById("coach").style.display = "block";
       return;
     }
-    location.href = SCHEMES[i++];
-    setTimeout(attempt, 450);
+    var step = SCHEMES[i++];
+    location.href = step[0];
+    setTimeout(attempt, step[1]);
   }
   document.getElementById("go").onclick = function () {
-    inApp ? attempt() : (location.href = STORE);
+    if (!inApp) { location.href = LINK; return; }
+    // iPhone in-app browsers block the OneLink's App Store redirect, so the
+    // store schemes go direct; record the click on the OneLink in the background.
+    if (!ANDROID) {
+      try { fetch(LINK, { mode: "no-cors", credentials: "omit", keepalive: true }); } catch (e) {}
+    }
+    attempt();
   };
 </script>
 </body>
