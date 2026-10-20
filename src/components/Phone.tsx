@@ -1,5 +1,7 @@
-// A real app screenshot in a phone frame. Screens live in /public/screens, captured from
-// the app (iPhone 17 Pro Max simulator, signed in to a real account) and exported as webp.
+// An app screenshot in a phone frame. Screens live in /public/screens: most were captured from
+// the app (iPhone 17 Pro Max simulator, owner's account). leaderboard.webp is the App Store
+// leaderboard design with the crew on the podium (owner request 2026-10-20, consent given);
+// its source is Docs/Store Screenshots/src/slides/_web-leaderboard.html in the iOS repo.
 export default function Phone({
   src,
   alt,

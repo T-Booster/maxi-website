@@ -83,7 +83,7 @@ const features: Feature[] = [
       "Weekly Hall of Fame podiums",
       "Search for friends and follow them",
     ],
-    shots: [{ src: "/screens/leaderboard.webp", alt: "XP leaderboard with podium and your rank" }],
+    shots: [{ src: "/screens/leaderboard.webp", alt: "Leaderboard podium: ericthgt, andyandrici and shezmasha, with geldizhara fourth" }],
   },
   {
     eyebrow: "Community",
@@ -125,7 +125,7 @@ export default function Features() {
             Everything you need to <span className="text-gradient">get fit</span>, in one app
           </h2>
           <p className="text-dark-muted text-lg leading-relaxed">
-            These are real screens from FunFit, with real data.
+            Screens from the FunFit app.
           </p>
         </motion.div>
 
