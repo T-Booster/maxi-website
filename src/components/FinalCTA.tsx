@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import WaitlistForm from "./WaitlistForm";
+import Phone from "./Phone";
 
 export default function FinalCTA() {
   return (
@@ -18,13 +19,11 @@ export default function FinalCTA() {
             transition={{ duration: 0.6 }}
             className="flex justify-center order-2 lg:order-1"
           >
-            <div className="phone-frame w-[260px] md:w-[300px] animate-float">
-              <img
-                src="/mockups/home.webp"
-                alt="FunFit home screen"
-                className="w-full aspect-[9/19.5] object-cover bg-dark-surface"
-              />
-            </div>
+            <Phone
+              src="/screens/journey.webp"
+              alt="FunFit Journey screen"
+              className="w-[260px] md:w-[300px] animate-float"
+            />
           </motion.div>
 
           {/* Right: CTA Content */}
@@ -39,16 +38,15 @@ export default function FinalCTA() {
               Stay in the <span className="text-gradient">Loop</span>
             </h2>
             <p className="text-dark-muted text-lg mb-10 max-w-lg">
-              Get the latest feature updates, health articles, and optimization
-              tips delivered straight to your inbox.
+              New features, challenges and creator drops, straight to your inbox.
             </p>
 
             <WaitlistForm />
 
             <div className="mt-8 flex flex-wrap gap-6 text-sm text-dark-muted">
-              <span>&#10003; Feature Updates</span>
-              <span>&#10003; Health Articles</span>
-              <span>&#10003; No Spam Ever</span>
+              <span>&#10003; New features</span>
+              <span>&#10003; Challenges</span>
+              <span>&#10003; No spam</span>
             </div>
           </motion.div>
         </div>

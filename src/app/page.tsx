@@ -1,11 +1,10 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Coaches from "@/components/Coaches";
-import Mission from "@/components/SocialProof";
-import AppShowcase from "@/components/Features";
+import Features from "@/components/Features";
+import Crew from "@/components/Crew";
 import HowItWorks from "@/components/HowItWorks";
 import FinalCTA from "@/components/FinalCTA";
-import FAQ from "@/components/FreeValue";
+import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -13,12 +12,11 @@ export default function Home() {
     <main>
       <Navbar />
       <Hero />
-      <Coaches />
-      <Mission />
-      <AppShowcase />
+      <Features />
+      <Crew />
       <HowItWorks />
-      <FinalCTA />
       <FAQ />
+      <FinalCTA />
       <Footer />
     </main>
   );

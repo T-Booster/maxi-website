@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ONELINKS } from "@/lib/onelink";
 
 // Store link that survives in-app browsers (Instagram, TikTok, FB).
 //
@@ -15,6 +16,11 @@ import { useEffect, useState } from "react";
 // "auto" (default) sends Android devices to Google Play and everyone else to
 // the App Store. On the Play side, market:// opens the Play app directly and
 // the web listing is the fallback — Instagram's Android browser does load it.
+//
+// Tracking: on a phone whose store matches the button, the href is the AppsFlyer
+// OneLink for the website (pid website), which sends the visitor to that same store
+// and credits the install to funfit.ai. Desktop keeps the plain store URLs (OneLink
+// has no store to pick there), and so does a button for the other platform's store.
 
 export const STORE_URL =
   "https://apps.apple.com/lb/app/funfit-ai-health-tracker/id6754610107";
@@ -47,9 +53,14 @@ export default function StoreLink({
 }) {
   const [coach, setCoach] = useState(false);
   const [android, setAndroid] = useState(false);
+  const [tracked, setTracked] = useState(false);
 
   useEffect(() => {
-    if (store === "auto") setAndroid(/Android/i.test(navigator.userAgent));
+    const ua = navigator.userAgent;
+    const isAndroid = /Android/i.test(ua);
+    const isIOS = /iPhone|iPad|iPod/i.test(ua);
+    if (store === "auto") setAndroid(isAndroid);
+    setTracked((isIOS && store !== "play") || (isAndroid && store !== "apple"));
   }, [store]);
 
   const play = store === "play" || (store === "auto" && android);
@@ -89,7 +100,7 @@ export default function StoreLink({
   return (
     <>
       <a
-        href={play ? PLAY_URL : STORE_URL}
+        href={tracked ? ONELINKS.web : play ? PLAY_URL : STORE_URL}
         onClick={handleClick}
         className={className}
       >

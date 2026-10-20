@@ -52,11 +52,10 @@ export default function WaitlistForm() {
               <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                 <Check className="text-primary" size={20} />
               </div>
-              <h3 className="text-lg font-bold text-white">You&apos;re subscribed!</h3>
+              <h3 className="text-lg font-bold text-white">You&apos;re on the list</h3>
             </div>
             <p className="text-dark-muted text-sm ml-[52px]">
-              Check your inbox for a welcome email. We&apos;ll keep you updated with
-              the latest features and health articles.
+              We&apos;ll email you when there&apos;s something new in FunFit.
             </p>
             <button
               onClick={() => setStatus("idle")}
@@ -111,7 +110,7 @@ export default function WaitlistForm() {
               </motion.p>
             )}
             <p className="text-dark-muted/50 text-xs">
-              Free updates and health articles. No spam. Unsubscribe anytime.
+              Only FunFit news. Unsubscribe any time.
             </p>
           </motion.form>
         )}

@@ -2,12 +2,10 @@
 
 import { useEffect, useState } from "react";
 
-/* Public anon key — the same one shipped in the app; safe in client code.
-   get_shared_plan is SECURITY DEFINER and granted to anon on purpose: the
-   token IS the capability, and the row carries no owner_id. */
-const SUPABASE_URL = "https://jqvbgtmiqsgpwmosogwi.supabase.co";
-const SUPABASE_ANON =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxdmJndG1pcXNncHdtb3NvZ3dpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjExMDgzNjEsImV4cCI6MjA3NjY4NDM2MX0.7Kd5uZGVA5W5mrR0Z6CW4XMCd1OtEV0YCXkitQHveoo";
+/* get_shared_plan is SECURITY DEFINER and granted to anon on purpose: the token IS the
+   capability, and the row carries no owner_id. */
+import { SUPABASE_URL, rpc } from "@/lib/supabase";
+
 const APP_STORE = "https://apps.apple.com/app/id6754610107";
 const PLAY_STORE =
   "https://play.google.com/store/apps/details?id=com.influogen.tboost.ai";
@@ -69,15 +67,7 @@ export default function PlanClient({ token }: { token: string | null }) {
   useEffect(() => {
     if (!token) return;
     let alive = true;
-    fetch(`${SUPABASE_URL}/rest/v1/rpc/get_shared_plan`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: SUPABASE_ANON,
-        Authorization: `Bearer ${SUPABASE_ANON}`,
-      },
-      body: JSON.stringify({ p_token: token }),
-    })
+    rpc("get_shared_plan", { p_token: token })
       .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
       .then((d: Shared) => {
         if (!alive) return;

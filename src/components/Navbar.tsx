@@ -17,9 +17,9 @@ export default function Navbar() {
 
   // Absolute paths so the anchors also work from /privacy and /terms.
   const links = [
-    { label: "Coaches", href: "/#coaches" },
     { label: "Features", href: "/#features" },
-    { label: "How It Works", href: "/#how-it-works" },
+    { label: "Crew", href: "/#crew" },
+    { label: "How it works", href: "/#how-it-works" },
     { label: "FAQ", href: "/#faq" },
   ];
 
@@ -59,6 +59,7 @@ export default function Navbar() {
 
         <button
           className="md:hidden text-white"
+          aria-label={mobileOpen ? "Close menu" : "Open menu"}
           onClick={() => setMobileOpen(!mobileOpen)}
         >
           {mobileOpen ? <X size={24} /> : <Menu size={24} />}
