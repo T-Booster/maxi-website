@@ -14,6 +14,7 @@ export default function Footer() {
             <a href="/#features" className="hover:text-white transition-colors">Features</a>
             <a href="/#crew" className="hover:text-white transition-colors">Crew</a>
             <a href="/#faq" className="hover:text-white transition-colors">FAQ</a>
+            <a href="/media" className="hover:text-white transition-colors">Media kit</a>
             <a href="mailto:support@funfit.ai" className="hover:text-white transition-colors">Support</a>
             <a href="/privacy" className="hover:text-white transition-colors">Privacy</a>
             <a href="/terms" className="hover:text-white transition-colors">Terms</a>
