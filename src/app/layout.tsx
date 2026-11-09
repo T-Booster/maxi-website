@@ -42,7 +42,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/funfitlogo.png" />
+        {/* The site loads small copies of /funfitlogo.png (the 2.75 MB, 1024 px
+            master): favicon-96.png here, logo-108.webp in the navbar and footer,
+            logo-216.webp on /get. */}
+        <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"

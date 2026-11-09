@@ -41,7 +41,7 @@ const html = `<!doctype html>
 <meta name="theme-color" content="#09090f">
 <meta name="apple-itunes-app" content="app-id=6754610107">
 <title>Download FunFit</title>
-<link rel="icon" href="/funfitlogo.png">
+<link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96">
 <script>
   var UA = navigator.userAgent;
   var ANDROID = /Android/i.test(UA);
@@ -129,7 +129,7 @@ const html = `<!doctype html>
 </head>
 <body>
 <div class="wrap">
-  <img class="logo" src="/funfitlogo.png" alt="FunFit">
+  <img class="logo" src="/logo-216.webp" alt="FunFit">
   <h1>FunFit</h1>
   <p class="sub">AI coaches that train you, not just track you.</p>
   <button id="go">

@@ -37,7 +37,7 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <a href="/" className="flex items-center gap-2.5">
-          <img src="/funfitlogo.png" alt="FunFit" className="w-9 h-9 rounded-xl" />
+          <img src="/logo-108.webp" alt="FunFit" className="w-9 h-9 rounded-xl" />
           <span className="text-xl font-bold tracking-tight text-white">
             FunFit
           </span>
