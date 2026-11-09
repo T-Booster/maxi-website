@@ -1,4 +1,4 @@
-import { readFileSync } from "node:fs";
+import { readFileSync, statSync } from "node:fs";
 import path from "node:path";
 import {
   APP_LINK,
@@ -94,9 +94,12 @@ function crc32(bytes: Uint8Array): number {
   return (c ^ 0xffffffff) >>> 0;
 }
 
-// A fixed timestamp (2026-11-10 12:00) keeps the archive byte-identical between builds.
+// A fixed timestamp (2026-11-01 12:00) keeps the archive byte-identical between builds.
 const DOS_TIME = (12 << 11) | (0 << 5) | 0;
-const DOS_DATE = ((2026 - 1980) << 9) | (11 << 5) | 10;
+const DOS_DATE = ((2026 - 1980) << 9) | (11 << 5) | 1;
+
+const VERSION = 10; // 1.0: all a stored file needs
+const FLAGS = 0x0800; // names are UTF-8
 
 function zip(entries: { name: string; data: Uint8Array }[]): Uint8Array<ArrayBuffer> {
   const encoder = new TextEncoder();
@@ -116,8 +119,8 @@ function zip(entries: { name: string; data: Uint8Array }[]): Uint8Array<ArrayBuf
   for (const e of prepared) {
     offsets.push(offset);
     view.setUint32(offset, 0x04034b50, true); // local file header
-    view.setUint16(offset + 4, 20, true); // version needed
-    view.setUint16(offset + 6, 0, true); // flags
+    view.setUint16(offset + 4, VERSION, true); // version needed
+    view.setUint16(offset + 6, FLAGS, true);
     view.setUint16(offset + 8, 0, true); // method: stored
     view.setUint16(offset + 10, DOS_TIME, true);
     view.setUint16(offset + 12, DOS_DATE, true);
@@ -134,10 +137,10 @@ function zip(entries: { name: string; data: Uint8Array }[]): Uint8Array<ArrayBuf
   const centralStart = offset;
   prepared.forEach((e, i) => {
     view.setUint32(offset, 0x02014b50, true); // central directory header
-    view.setUint16(offset + 4, 20, true); // version made by
-    view.setUint16(offset + 6, 20, true); // version needed
-    view.setUint16(offset + 8, 0, true);
-    view.setUint16(offset + 10, 0, true);
+    view.setUint16(offset + 4, VERSION, true); // version made by
+    view.setUint16(offset + 6, VERSION, true); // version needed
+    view.setUint16(offset + 8, FLAGS, true);
+    view.setUint16(offset + 10, 0, true); // method: stored
     view.setUint16(offset + 12, DOS_TIME, true);
     view.setUint16(offset + 14, DOS_DATE, true);
     view.setUint32(offset + 16, e.crc, true);
@@ -158,8 +161,12 @@ function zip(entries: { name: string; data: Uint8Array }[]): Uint8Array<ArrayBuf
   return out;
 }
 
-function publicFile(urlPath: string): Uint8Array {
-  return readFileSync(path.join(process.cwd(), "public", urlPath));
+// Every kit file lives under /public/media. Resolving from that folder, rather than from
+// /public, keeps Next's file tracing to the kit instead of the whole public directory.
+const MEDIA_DIR = path.join(process.cwd(), "public", "media");
+
+function kitPath(urlPath: string): string {
+  return path.join(MEDIA_DIR, urlPath.replace(/^\/media\//, ""));
 }
 
 let cached: Uint8Array<ArrayBuffer> | undefined;
@@ -167,15 +174,15 @@ let cached: Uint8Array<ArrayBuffer> | undefined;
 export function buildKitZip(): Uint8Array<ArrayBuffer> {
   cached ??= zip([
     { name: `${ROOT}/README.txt`, data: new TextEncoder().encode(readme()) },
-    ...logos.map((l) => ({ name: `${ROOT}/logo/${l.name}`, data: publicFile(l.file) })),
-    ...screens.map((s) => ({ name: `${ROOT}/screens/${s.name}`, data: publicFile(s.file) })),
+    ...logos.map((l) => ({ name: `${ROOT}/logo/${l.name}`, data: readFileSync(kitPath(l.file)) })),
+    ...screens.map((s) => ({ name: `${ROOT}/screens/${s.name}`, data: readFileSync(kitPath(s.file)) })),
   ]);
   return cached;
 }
 
-/** Size of a file under /public, for the labels beside each download. */
-export function publicFileSize(urlPath: string): number {
-  return publicFile(urlPath).length;
+/** Size of a kit file, for the label beside its download. */
+export function kitFileSize(urlPath: string): number {
+  return statSync(kitPath(urlPath)).size;
 }
 
 export function formatSize(bytes: number): string {

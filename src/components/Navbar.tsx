@@ -25,6 +25,7 @@ export default function Navbar() {
 
   return (
     <motion.nav
+      aria-label="Main"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6 }}

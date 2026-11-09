@@ -23,13 +23,13 @@ import {
   screens,
   type KitImage,
 } from "@/lib/mediaKit";
-import { buildKitZip, formatSize, publicFileSize } from "@/lib/mediaKitZip";
+import { buildKitZip, formatSize, kitFileSize } from "@/lib/mediaKitZip";
 
 // The brand and media kit for creators, press and partners. All content comes from
 // src/lib/mediaKit.ts; the same data builds the ZIP, so change things there.
 
 const description =
-  "The FunFit app icon, our colors and type, and real screens from the app, with the few rules for using them. For creators, press and partners.";
+  "The FunFit app icon, our colors and type, and screens from the app, with the few rules for using them. For creators, press and partners.";
 
 export const metadata: Metadata = {
   title: "Brand and media kit — FunFit",
@@ -41,11 +41,15 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "FunFit",
     url: "/media",
+    locale: "en_US",
     images: [{ url: logos[0].file, width: 1024, height: 1024, alt: "The FunFit app icon" }],
   },
+  // A square icon suits the small card; the root layout's large card would crop it.
+  twitter: { card: "summary", title: "FunFit brand and media kit", description },
 };
 
-const ICON = logos[1].file; // the 512 px icon is plenty for the demos on this page
+// What the page shows is a 7 KB preview; the full files are only fetched when downloaded.
+const ICON = "/media/preview/app-icon.webp";
 
 const sections = [
   { id: "logo", label: "Logo" },
@@ -68,6 +72,7 @@ const weights = [
 ];
 
 const card = "rounded-2xl bg-dark-surface border border-dark-border";
+const stage = "bg-[#0c0c13]"; // the darker well a logo sits in
 
 function Section({
   id,
@@ -84,7 +89,7 @@ function Section({
 }) {
   return (
     <section id={id} className="scroll-mt-24 py-16 md:py-24 border-t border-dark-border">
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="max-w-2xl mb-10 md:mb-12">
           <div className="text-primary text-xs font-black tracking-[0.2em] uppercase mb-4">
             {eyebrow}
@@ -104,14 +109,14 @@ function DownloadLink({ image }: { image: KitImage }) {
       <a
         href={image.file}
         download={image.name}
-        className="inline-flex items-center gap-2 text-primary-light font-semibold hover:text-white transition-colors"
+        className="inline-flex items-center gap-2 py-2 -my-2 text-primary-light font-semibold hover:text-white transition-colors"
       >
         <Download size={16} aria-hidden="true" />
         Download PNG
         <span className="sr-only">: {image.title}</span>
       </a>
       <div className="text-xs text-dark-muted mt-1">
-        {image.width} × {image.height} · {formatSize(publicFileSize(image.file))}
+        {image.width} × {image.height} · {formatSize(kitFileSize(image.file))}
       </div>
     </div>
   );
@@ -135,20 +140,20 @@ function LogoRule({
   ok,
   title,
   body,
-  stage = "bg-[#0c0c13]",
+  well = stage,
   children,
 }: {
   ok: boolean;
   title: string;
   body: string;
-  stage?: string;
+  well?: string;
   children: ReactNode;
 }) {
   return (
     <div className={`${card} overflow-hidden`}>
       <div
         aria-hidden="true"
-        className={`relative h-44 flex items-center justify-center overflow-hidden ${stage}`}
+        className={`relative h-44 flex items-center justify-center overflow-hidden ${well}`}
       >
         {children}
       </div>
@@ -175,8 +180,8 @@ export default function MediaPage() {
       {/* Hero */}
       <section className="relative overflow-hidden bg-grid-dark">
         <div className="absolute inset-0 bg-radial-glow-dark pointer-events-none" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-36 pb-16 md:pt-44 md:pb-20">
-          <div className="grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-16 items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pt-36 pb-16 md:pt-44 md:pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-16 items-center">
             <div>
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/30 bg-primary/10 mb-8">
                 <span className="text-sm text-primary font-medium">
@@ -187,26 +192,26 @@ export default function MediaPage() {
                 Brand and <span className="text-gradient">media kit</span>
               </h1>
               <p className="text-lg md:text-xl text-dark-muted max-w-xl leading-relaxed mb-9">
-                Our app icon, our colors and real screens from the app, ready for your video,
-                post or article. Download what helps, then check the few rules below.
+                Our app icon, our colors and screens from the app, ready for your video, post
+                or article. Download what helps, then check the few rules below.
               </p>
               <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
                 <a
                   href={KIT_ZIP_PATH}
                   download={KIT_ZIP_NAME}
-                  className="inline-flex items-center justify-center gap-3 px-7 py-4 bg-white text-[#09090f] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm whitespace-nowrap"
+                  className="inline-flex items-center justify-center gap-3 px-5 sm:px-7 py-4 bg-white text-[#09090f] font-bold rounded-full hover:bg-gray-100 transition-colors text-sm sm:whitespace-nowrap"
                 >
                   <Download size={18} aria-hidden="true" />
                   Download the kit (ZIP, {kitSize})
                 </a>
                 <a
                   href="#screens"
-                  className="inline-flex items-center justify-center px-7 py-4 border border-dark-border text-white font-semibold rounded-full hover:bg-white/5 transition-colors text-sm whitespace-nowrap"
+                  className="inline-flex items-center justify-center px-5 sm:px-7 py-4 border border-dark-border text-white font-semibold rounded-full hover:bg-white/5 transition-colors text-sm sm:whitespace-nowrap"
                 >
                   See the app screens
                 </a>
               </div>
-              <p className="text-sm text-dark-muted/80 mt-5 max-w-md leading-relaxed">
+              <p className="text-sm text-dark-muted mt-5 max-w-md leading-relaxed">
                 The app icon in two sizes, {screens.length} app screens as PNG files and a README
                 that repeats the rules on this page.
               </p>
@@ -218,11 +223,11 @@ export default function MediaPage() {
                 <img src={ICON} alt="" width={72} height={72} className="w-[72px] h-[72px]" />
                 <div className="text-4xl font-black tracking-tight text-white">FunFit</div>
               </div>
-              <div className="flex gap-3 py-6">
+              <div className="flex gap-2 sm:gap-3 py-6">
                 {colors.map((c) => (
                   <span
                     key={c.hex}
-                    className={`w-9 h-9 rounded-full ${c.outlined ? "border border-white/20" : ""}`}
+                    className={`w-7 h-7 sm:w-9 sm:h-9 shrink-0 rounded-full ${c.outlined ? "border border-white/20" : ""}`}
                     style={{ background: c.hex }}
                   />
                 ))}
@@ -247,7 +252,7 @@ export default function MediaPage() {
               <a
                 key={s.id}
                 href={`#${s.id}`}
-                className="px-4 py-2 rounded-full border border-dark-border text-sm text-white/70 hover:text-white hover:border-white/30 transition-colors"
+                className="px-4 py-2.5 rounded-full border border-dark-border text-sm text-white/70 hover:text-white hover:border-white/30 transition-colors"
               >
                 {s.label}
               </a>
@@ -266,9 +271,9 @@ export default function MediaPage() {
         <div className="grid md:grid-cols-3 gap-5">
           {logos.map((logo, i) => (
             <div key={logo.file} className={`${card} p-6 flex flex-col`}>
-              <div className="h-44 rounded-xl bg-[#0c0c13] flex items-center justify-center mb-6">
+              <div className={`h-44 rounded-xl ${stage} flex items-center justify-center mb-6`}>
                 <img
-                  src={logo.file}
+                  src={ICON}
                   alt="The FunFit app icon: a white F on an orange tile"
                   width={i === 0 ? 112 : 72}
                   height={i === 0 ? 112 : 72}
@@ -282,7 +287,7 @@ export default function MediaPage() {
           ))}
 
           <div className={`${card} p-6 flex flex-col`}>
-            <div className="h-44 rounded-xl bg-[#0c0c13] flex items-center justify-center gap-3 mb-6">
+            <div className={`h-44 rounded-xl ${stage} flex items-center justify-center gap-3 mb-6`}>
               <img src={ICON} alt="" width={48} height={48} loading="lazy" />
               <span className="text-3xl font-bold tracking-tight text-white">FunFit</span>
             </div>
@@ -330,14 +335,14 @@ export default function MediaPage() {
           </LogoRule>
           <LogoRule
             ok
-            stage=""
+            well=""
             title="Light or dark, both work"
             body="The icon carries its own tile, so it sits on any plain background."
           >
             <div className="absolute inset-y-0 left-0 w-1/2 bg-white flex items-center justify-center">
               <Icon size={60} />
             </div>
-            <div className="absolute inset-y-0 right-0 w-1/2 bg-[#0c0c13] flex items-center justify-center">
+            <div className={`absolute inset-y-0 right-0 w-1/2 ${stage} flex items-center justify-center`}>
               <Icon size={60} />
             </div>
           </LogoRule>
@@ -377,7 +382,7 @@ export default function MediaPage() {
               <div className="w-11 h-[84px] overflow-hidden">
                 <img src={ICON} alt="" width={84} height={84} className="block max-w-none" />
               </div>
-              <div className="w-[84px] h-[84px] rounded-[22%] bg-[#e8601c] flex items-center justify-center text-white text-5xl font-serif italic font-bold">
+              <div className="w-[84px] h-[84px] rounded-[22%] bg-primary flex items-center justify-center text-white text-5xl font-serif italic font-bold">
                 F
               </div>
             </div>
@@ -402,7 +407,7 @@ export default function MediaPage() {
         id="colors"
         eyebrow="Colors"
         title="Orange, on dark"
-        intro="Three oranges, two darks and white. The copy buttons give the exact codes."
+        intro="The colors of our website: three oranges, two darks and white. The copy buttons give the exact codes."
       >
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {colors.map((c) => (
@@ -432,7 +437,9 @@ export default function MediaPage() {
               Deep orange to orange to light orange, at 135 degrees. We use it on headline words.
             </p>
           </div>
-          <CopyButton text={GRADIENT_CSS} label="Copy CSS" what="for our gradient" />
+          <div className="flex-shrink-0">
+            <CopyButton text={GRADIENT_CSS} label="Copy CSS" what="for our gradient" />
+          </div>
         </div>
       </Section>
 
@@ -447,14 +454,14 @@ export default function MediaPage() {
           <div className="text-5xl md:text-7xl font-black tracking-tight leading-[0.98] text-white mb-8">
             Get fit. <span className="text-gradient">Level up.</span>
           </div>
-          <p className="text-white/70 text-lg break-words mb-2">
+          <p aria-hidden="true" className="text-white/70 text-lg break-words mb-2">
             Aa Bb Cc Dd Ee Ff Gg Hh Ii Jj Kk Ll Mm Nn Oo Pp Qq Rr Ss Tt Uu Vv Ww Xx Yy Zz
           </p>
-          <p className="text-white/70 text-lg mb-8">0 1 2 3 4 5 6 7 8 9</p>
+          <p aria-hidden="true" className="text-white/70 text-lg mb-8">0 1 2 3 4 5 6 7 8 9</p>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-3 mb-8">
             {weights.map((w) => (
-              <div key={w.value} className="rounded-xl bg-white/[0.04] p-4">
-                <div className="text-3xl text-white leading-none mb-2" style={{ fontWeight: w.value }}>
+              <div key={w.value} className="rounded-xl bg-white/[0.04] p-3 sm:p-4">
+                <div aria-hidden="true" className="text-3xl text-white leading-none mb-2" style={{ fontWeight: w.value }}>
                   Aa
                 </div>
                 <div className="text-xs text-dark-muted">
@@ -467,11 +474,11 @@ export default function MediaPage() {
             href="https://fonts.google.com/specimen/Inter"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-primary-light font-semibold hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 py-2 -my-2 text-primary-light font-semibold hover:text-white transition-colors"
           >
             Get Inter on Google Fonts
             <ArrowUpRight size={16} aria-hidden="true" />
-            <span className="sr-only">(opens in a new tab)</span>
+            <span className="sr-only"> (opens in a new tab)</span>
           </a>
           <p className="text-dark-muted text-sm mt-2">
             Inter is free and open source, under the SIL Open Font License.
@@ -561,8 +568,8 @@ export default function MediaPage() {
       <Section
         id="screens"
         eyebrow="Screens"
-        title="Real screens from the app"
-        intro="Screens from the FunFit app, as PNG files. The numbers on them come from our own demo account."
+        title="Screens from the app"
+        intro="Screens from the FunFit app, as PNG files."
       >
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
           {screens.map((s) => (
@@ -610,8 +617,8 @@ export default function MediaPage() {
               {APP_LINK_LABEL}
             </a>
             <p className="text-dark-muted text-sm leading-relaxed mt-3 mb-5">
-              One link for everyone: it opens the App Store on iPhone and Google Play on Android.
-              Working with us as a creator? Ask us for a link of your own.
+              It opens the App Store on iPhone and Google Play on Android. Working with us as a
+              creator? Ask us for a link of your own.
             </p>
             <CopyButton text={APP_LINK} label="Copy link" what="to the app" />
           </div>
@@ -621,9 +628,9 @@ export default function MediaPage() {
             </div>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="inline-flex items-center gap-3 text-2xl md:text-3xl font-black text-white hover:text-primary-light transition-colors break-all"
+              className="inline-flex items-center gap-2 sm:gap-3 text-lg sm:text-2xl lg:text-3xl font-black text-white hover:text-primary-light transition-colors [overflow-wrap:anywhere]"
             >
-              <Mail size={26} className="flex-shrink-0" aria-hidden="true" />
+              <Mail size={22} className="flex-shrink-0" aria-hidden="true" />
               {CONTACT_EMAIL}
             </a>
             <p className="text-dark-muted text-sm leading-relaxed mt-3">

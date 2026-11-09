@@ -10,7 +10,7 @@ export default function Footer() {
             <span className="text-lg font-bold tracking-tight text-white">FunFit</span>
           </a>
 
-          <nav className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-dark-muted">
+          <nav aria-label="Footer" className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-dark-muted">
             <a href="/#features" className="hover:text-white transition-colors">Features</a>
             <a href="/#crew" className="hover:text-white transition-colors">Crew</a>
             <a href="/#faq" className="hover:text-white transition-colors">FAQ</a>

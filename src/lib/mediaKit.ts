@@ -1,5 +1,8 @@
-// Everything the /media page offers, in one place. The page renders from this and the
-// kit ZIP (src/lib/mediaKitZip.ts) is built from it, so the two cannot drift apart.
+// Everything the /media page offers, in one place. The page renders its files, colors,
+// descriptions and facts from this, and the kit ZIP (src/lib/mediaKitZip.ts) and its
+// README are built from it, so those cannot drift apart. The one thing kept in two places
+// is the icon rules: the illustrated cards are in the page, and logoRules below is their
+// plain-text summary for the README. Change them together.
 //
 // Files live in /public/media. The screens there are PNG copies of /public/screens/*.webp
 // (same pixels, a format video editors open); when a screen changes, re-export its PNG.
@@ -47,12 +50,7 @@ export interface KitScreen extends KitImage {
   preview: string;
 }
 
-function screen(
-  slug: string,
-  title: string,
-  note: string,
-  height = 1434
-): KitScreen {
+function screen(slug: string, title: string, note: string, height = 1434): KitScreen {
   return {
     file: `/media/screens/funfit-${slug}.png`,
     name: `funfit-${slug}.png`,
@@ -66,17 +64,21 @@ function screen(
 
 export const screens: KitScreen[] = [
   screen("home", "Home", "Calories and macros left, steps, water and today's workout."),
-  screen("food-log", "Log a meal", "Scan food, chat with AI, search the food database or pick a saved recipe."),
+  screen("food-log", "Log a meal", "Scan food, chat with AI, browse the food database, pick a saved recipe or get a meal suggestion."),
   screen("food", "Food scan result", "A scanned breakfast with its calories, protein, carbs and fat."),
   screen("food-items", "Scan breakdown", "Each food in the meal, with its portion and calories."),
   screen("food-chat", "AI food chat", "Logging a lunch by describing it."),
-  screen("meals", "Today's meals", "The meals logged today, each with its score."),
+  screen("meals", "Today's meals", "The meals logged today."),
   screen("workout", "Active workout", "Sets, reps and weights, with a rest timer."),
   screen("activity", "Activities", "Routines, gym workouts, runs, walks, hikes, climbs, rides and swims."),
   screen("plan", "Plan generator", "An AI workout or meal plan built around your goal."),
   screen("bodyscan", "AI Body Scan", "A full scan or a quick one, with earlier scores below."),
   screen("journey", "XP journey", "XP for the week, the avatar collection and XP milestones."),
-  screen("leaderboard", "Leaderboard", "The XP leaderboard, with the FunFit crew on the podium.", 1431),
+  // The leaderboard shot is left out on purpose. It shows the crew's faces and handles,
+  // and their consent covers our own website and store pages, not reuse by anyone who
+  // downloads this kit. It is also a designed screen rather than a capture. To offer it,
+  // confirm with the four of them, re-export its PNG and add:
+  //   screen("leaderboard", "Leaderboard", "The XP leaderboard, with the FunFit crew at the top.", 1431),
   screen("groups", "Groups", "Community groups and messages."),
 ];
 
@@ -91,9 +93,9 @@ export interface KitColor {
 
 // The website's own theme tokens (src/app/globals.css).
 export const colors: KitColor[] = [
-  { name: "Orange", hex: "#E8601C", rgb: "232, 96, 28", note: "Our main color: buttons, links and highlights." },
-  { name: "Deep orange", hex: "#C94E14", rgb: "201, 78, 20", note: "The dark end of our gradient, and pressed buttons." },
-  { name: "Light orange", hex: "#F0854A", rgb: "240, 133, 74", note: "Orange text on dark backgrounds." },
+  { name: "Orange", hex: "#E8601C", rgb: "232, 96, 28", note: "Our main color: labels, badges and highlights." },
+  { name: "Deep orange", hex: "#C94E14", rgb: "201, 78, 20", note: "The dark end of our gradient." },
+  { name: "Light orange", hex: "#F0854A", rgb: "240, 133, 74", note: "The light end of our gradient, and links on dark backgrounds." },
   { name: "Ink", hex: "#09090F", rgb: "9, 9, 15", note: "The dark background of our website.", outlined: true },
   { name: "Panel", hex: "#12121A", rgb: "18, 18, 26", note: "Cards and panels on the dark background.", outlined: true },
   { name: "White", hex: "#FFFFFF", rgb: "255, 255, 255", note: "Text on dark, and our light sections." },
@@ -108,9 +110,9 @@ export const nameRules = {
 
 export const about = {
   short:
-    "FunFit is a fitness app that turns training and eating well into a game. Scan your meals, log your workouts, score your physique and earn XP for all of it. On iPhone and Android.",
+    "FunFit is a fitness app that turns training and eating well into a game. Scan your meals, log your workouts and score your physique. Every workout, meal and streak earns XP. On iPhone and Android.",
   long:
-    "FunFit is a fitness app that turns training and eating well into a game. Log a meal with a photo, your voice or a barcode, and it works out the calories and macros. Save your workout routines, follow AI workout and meal plans, and track runs, walks, hikes, rides and swims. An AI body scan scores your physique and estimates your body fat from photos. Everything you log earns XP, with streaks, levels, leaderboards and groups to keep you going. FunFit is on the App Store and Google Play. It is not a medical device, and its numbers are estimates.",
+    "FunFit is a fitness app that turns training and eating well into a game. Log a meal with a photo, your voice or a barcode, and it works out the calories and macros. Save your workout routines, follow AI workout and meal plans, and track runs, walks, hikes, rides and swims. An AI body scan scores your physique and estimates your body fat from photos. Workouts, meals and streaks all earn XP, with levels, leaderboards and groups to keep you going. FunFit is on the App Store and Google Play. It is not a medical device, and its numbers are estimates.",
 };
 
 export const facts: { label: string; value: string }[] = [
@@ -144,7 +146,7 @@ export const contentRules: { ok: boolean; title: string; body: string }[] = [
   {
     ok: true,
     title: "Say when it's an ad",
-    body: "If we pay you or give you something for a post, label it as an ad or a partnership, as your platform and local rules require.",
+    body: "If your post is paid or gifted, label it as an ad, as your platform and local rules require.",
   },
   {
     ok: false,
@@ -159,4 +161,4 @@ export const contentRules: { ok: boolean; title: string; body: string }[] = [
 ];
 
 export const PERMISSION =
-  "You may use these files to talk about FunFit or to link to our app, as long as you follow the rules on this page. Our name and icon stay ours, and we may change these rules or withdraw permission at any time.";
+  "You may use these files to talk about FunFit or to link to our app, as long as you follow these rules. Our name and icon stay ours, and we may change these rules or withdraw permission at any time.";
